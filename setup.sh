@@ -20,18 +20,18 @@ cdir="$HOME/.config"
 home="$HOME"
 
 sudo ln -s auto-cpufreq ~/.config/auto-cpufreq
-ln -s "$dotfiles/kitty" ~/.config/kitty
-ln -s "$dotfiles/nvim" ~/.config/nvim
-ln -s "$dotfiles/rofi" ~/.config/rofi
-ln -s "$dotfiles/swaylock" ~/.config/swaylock
-ln -s "$dotfiles/mako" ~/.config/mako
-ln -s "$dotfiles/waybar" ~/.config/waybar
-ln -s "$dotfiles/Wallpapers" ~/Wallpapers
-ln -s "$dotfiles/oh-my-zsh" ~/.oh-my-zsh
-ln -s "$dotfiles/zshrc" ~/.zshrc
-ln -s "$dotfiles/ncspot" ~/.config
-ln -s "$dotfiles/wal" ~/.config
-ln -s "$cdir/hypr" hypr
+ln -sfn "$dotfiles/kitty" ~/.config/kitty
+ln -sfn "$dotfiles/nvim" ~/.config/nvim
+ln -sfn "$dotfiles/rofi" ~/.config/rofi
+ln -sfn "$dotfiles/swaylock" ~/.config/swaylock
+ln -sfn "$dotfiles/mako" ~/.config/mako
+ln -sfn "$dotfiles/waybar" ~/.config/waybar
+ln -sfn "$dotfiles/Wallpapers" ~/Wallpapers
+ln -sfn "$dotfiles/oh-my-zsh" ~/.oh-my-zsh
+ln -sfn "$dotfiles/zshrc" ~/.zshrc
+ln -sfn "$dotfiles/ncspot" ~/.config
+ln -sfn "$dotfiles/wal" ~/.config
+ln -sfn "$cdir/hypr" hypr
 
 # Reflector Mirrors
 reflector --verbose --country 'United Kingdom' -l 10 rate --save /etc/pacman.d/mirrorlist
