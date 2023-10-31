@@ -9,7 +9,7 @@ cd paru
 makepkg -si
 
 # Package Install
-paru -S rust lld gparted grim git gimp alsa-utils amd-ucode auto-cpufreq autojump-rs base base obsidian npm networkmanager ntfs-3g pfetch-rs polkit-gnome preload rofi timeshift vlc waybar-hyprland xdg-desktop-portal-hyprland xorg-xhost zsh reflector syncthing ttf-firacode-nerd ttf-font-awesome ttf-meslo-nerd ufw openbsd-netcat obs-studio neovim man-db ncspot mako linux-lts linux-firmware linux libreoffice-fresh grub dolphin dmidecode cmake efibootmgr htop hyprland gimp krita firefox iptables-nft brightnessctl bridge-utils armcord kitty spdlog sof-firmware wireplumber steam qt6-wayland swayidle swaylock-effects swww 
+paru -S rust lld gparted grim git gimp alsa-utils amd-ucode auto-cpufreq autojump-rs base base obsidian npm networkmanager ntfs-3g pfetch-rs polkit-gnome preload rofi timeshift vlc waybar-hyprland xdg-desktop-portal-hyprland xorg-xhost zsh reflector syncthing ttf-firacode-nerd ttf-font-awesome ttf-meslo-nerd ufw openbsd-netcat obs-studio neovim man-db ncspot mako linux-lts linux-firmware linux libreoffice-fresh grub dolphin dmidecode cmake efibootmgr htop hyprland gimp krita firefox iptables-nft brightnessctl bridge-utils armcord kitty spdlog sof-firmware wireplumber steam qt6-wayland swayidle swaylock-effects swww os-prober 
 
 # Symlink Configs
 sudo ln -sr auto-cpufreq ~/.config/auto-cpufreq
