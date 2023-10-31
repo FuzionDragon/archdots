@@ -3,13 +3,17 @@
 dotfiles="$HOME/dotfiles"
 
 # Paru Install
-sudo pacman -S --needed base-devel
+sudo pacman -S --needed base-devel git
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
 
+# Reflector Mirrors
+reflector --verbose --country 'United Kingdom' -l 10 rate --save /etc/pacman.d/mirrorlist
+
 # Package Install
-paru -S rust lld gparted grim git gimp alsa-utils amd-ucode auto-cpufreq autojump-rs base base obsidian npm networkmanager ntfs-3g pfetch-rs polkit-gnome preload rofi timeshift vlc waybar-hyprland xdg-desktop-portal-hyprland xorg-xhost zsh reflector syncthing ttf-fira-sans ttf-firacode-nerd ttf-font-awesome ttf-meslo-nerd ufw openbsd-netcat obs-studio neovim man-db ncspot mako linux-lts linux-firmware linux grub lf dmidecode cmake efibootmgr btop hyprland gimp krita firefox iptables-nft brightnessctl bridge-utils armcord kitty spdlog sof-firmware wireplumber steam qt6-wayland swayidle swaylock-effects swww os-prober 
+paru -Syu
+paru -S alsa-utils amd-ucode appmenu-gtk-module armcord auto-cpufreq autojump-rs base base-devel bridge-utils brightnessctl btop cmake debtap dmidecode efibootmgr enchant etcher-bin firefox gimp git gparted grim git gparted grim grub htop hyprland imagemagick iptables-nft kitty krita lf libvips linux linux-firmware linux-lts lld mako man-db ncspot neovim networkmanager npm ntfs-3g obs-studio obsidian okular openbsd-netcat os-prober pfetch-rs polkit-gnome preload pywal-git qt6-wayland reflector rofi rust slurp sof-firmware spdlog steam swayidle swaylock-effects swww syncthing timeshift tree ttf-fira-sans ttf-firacode-nerd ttf-font-awesome ttf-meslo-nerd ufw unzip vlc waybar-hyprland webkit2gtk wget wireplumber xdg-desktop-portal-hyprland xorg-xhost zsh
 
 # Clone Hypr Config
 rm -r ~/.config/hypr
@@ -33,5 +37,3 @@ ln -sfn "$dotfiles/ncspot" ~/.config
 ln -sfn "$dotfiles/wal" ~/.config
 ln -sfn "$cdir/hypr" hypr
 
-# Reflector Mirrors
-reflector --verbose --country 'United Kingdom' -l 10 rate --save /etc/pacman.d/mirrorlist
