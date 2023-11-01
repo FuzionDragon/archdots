@@ -13,7 +13,7 @@ reflector --verbose --country 'United Kingdom' -l 10 rate --save /etc/pacman.d/m
 
 # Package Install
 paru -Syu
-paru -S alsa-utils amd-ucode appmenu-gtk-module armcord auto-cpufreq autojump-rs base base-devel bridge-utils brightnessctl btop cmake debtap dmidecode efibootmgr enchant etcher-bin firefox gimp git gparted grim git gparted grim grub htop hyprland imagemagick iptables-nft kitty krita lf libvips linux linux-firmware linux-lts lld mako man-db ncspot neovim networkmanager npm ntfs-3g obs-studio obsidian okular openbsd-netcat os-prober pfetch-rs polkit-gnome preload pywal-git qt6-wayland reflector rofi rust slurp sof-firmware spdlog steam swayidle swaylock-effects swww syncthing timeshift tree ttf-fira-sans ttf-firacode-nerd ttf-font-awesome ttf-meslo-nerd ufw unzip vlc waybar-hyprland webkit2gtk wget wireplumber xdg-desktop-portal-hyprland xorg-xhost zsh
+paru -S alsa-utils amd-ucode appmenu-gtk-module armcord auto-cpufreq autojump-rs base base-devel bridge-utils brightnessctl btop cmake debtap dmidecode efibootmgr enchant etcher-bin firefox gimp git gparted grim git gparted grim grub go htop hyprland imagemagick iptables-nft kitty krita lf libvips linux linux-firmware linux-lts lld mako man-db ncspot neovim networkmanager npm ntfs-3g obs-studio obsidian okular openbsd-netcat os-prober pfetch-rs polkit-gnome preload pywal-git qt6-wayland reflector rofi rust slurp sof-firmware spdlog steam swayidle swaylock-effects swww syncthing timeshift tree ttf-fira-sans ttf-firacode-nerd ttf-font-awesome ttf-meslo-nerd ufw unzip vlc waybar-hyprland webkit2gtk wget wireplumber xdg-desktop-portal-hyprland xorg-xhost zsh
 
 # Clone Hypr Config
 rm -r ~/.config/hypr

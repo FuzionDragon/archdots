@@ -1,7 +1,7 @@
 /* ---- Configuration ---- */
 configuration {
     modi:                       "drun,run";
-    font:                       "Fira Sans Bold 12";
+    font:                       "Fira Sans Bold 13";
     show-icons:                 false;
     display-drun:               "APPS";
     display-window:             "WINDOW";
@@ -13,7 +13,7 @@ configuration {
 }
 
 /* ---- Load pywal colors (custom wal template) ---- */
-@import "~/.cache/wal/colors-rofi-pywal"
+@import "~/.cache/wal/colors-rofi-pywal.rasi" 
 
 /* ---- Window ---- */
 window {
@@ -125,7 +125,7 @@ element selected.urgent {
 }
 
 element selected.active {
-    background-color:            inherit;
+    background-color:            @color11;
     text-color:                  @foreground;
 }
 

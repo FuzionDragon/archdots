@@ -122,6 +122,9 @@ alias rs="cd ~/.config/rofi/scripts && ls"
 alias bc="cd ../"
 alias hc="cd ~"
 alias m="man"
+alias rsdir="cd ~/dev/rust"
+alias pydir="cd ~/dev/python"
+alias godir="cd ~/dev/go"
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
