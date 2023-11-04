@@ -144,13 +144,6 @@ element alternate.active {
     text-color:                  @foreground;
 }
 
-element-icon {
-    background-color:            transparent;
-    text-color:                  inherit;
-    size:                        32px;
-    cursor:                      inherit;
-}
-
 element-text {
     background-color:            transparent;
     text-color:                  inherit;
