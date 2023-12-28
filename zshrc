@@ -97,8 +97,8 @@ bindkey "^H" backward-delete-word
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-export PF_INFO="ascii title os host kernel de editor cpu pkgs memory"
-export EDITOR="Neovim"
+export PF_INFO="ascii title os host kernel de editor cpu pkgs uptime memory"
+export EDITOR="nvim"
 
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -125,6 +125,7 @@ alias m="man"
 alias rsdir="cd ~/dev/rust"
 alias pydir="cd ~/dev/python"
 alias godir="cd ~/dev/go"
+alias - -="cd -"
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 

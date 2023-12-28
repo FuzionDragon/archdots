@@ -144,11 +144,6 @@ require('lazy').setup({
     },
   },
 
-  -- Vimwiki 
-  {
-    'vimwiki/vimwiki',
-  },
-
   -- Autoclose 
   {
     'm4xshen/autoclose.nvim',
@@ -158,6 +153,10 @@ require('lazy').setup({
         escape = true,
       }
     } 
+  },
+
+  {
+    'ThePrimeagen/harpoon',
   },
 
   {
