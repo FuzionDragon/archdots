@@ -23,9 +23,9 @@ window {
     spacing:                      0px;
     padding:                      0px;
     margin:                       0px; 
-    color:                        #FFFFFF;
+    color:                        @color7;
     border:                       2px;
-    border-color:                 #FFFFFF;
+    border-color:                 @color3;
     cursor:                       "default";
     transparency:                 "real";
     location:                     center;
@@ -33,36 +33,37 @@ window {
     fullscreen:                   false;
     enabled:                      true;
     border-radius:                10px;
-    background-color:             transparent;
+    background-color:             #2F4F4F;
 }
 
 /* ---- Listbox ---- */
 listbox {
     spacing:                     0px;
-    background-color:            transparent;
+    background-color:            #2F4F4F;
     orientation:                 vertical;
     children:                    [ "listview" ];
 }
 
 /* ---- Dummy ---- */
 dummy {
-    background-color:            transparent;
+    background-color:            #2F4F4F;
 }
 
 /* ---- Inputbar ---- */
 inputbar {
     enabled:                      true;
-    text-color:                   @foreground;
+    text-color:                   @color7;
     spacing:                      10px;
     padding:                      15px;
-    border-color:                 @foreground;
-    background-color:             @background;
+    border-color:                 @color3;
+    background-color:             #2F4F4F;
     children:                     [ "entry" ];
 }
 
 entry {
     enabled:                      true;
-    background-color:             transparent;
+    background-color:             #2F4F4F;
+    border-color:		  @color3;
     text-color:                   inherit;
     cursor:                       text;
     placeholder:                  "Search";
@@ -84,7 +85,7 @@ listview {
     spacing:                      0px;
     padding:                      0px;
     margin:                       0px;
-    background-color:             @background;
+    background-color:             #2F4F4F;
     border:0px;
 }
 
@@ -101,37 +102,37 @@ element {
 
 element normal.normal {
     background-color:            inherit;
-    text-color:                  @foreground;
+    text-color:                  @color7;
 }
 
 element normal.urgent {
     background-color:            inherit;
-    text-color:                  @foreground;
+    text-color:                  @color7;
 }
 
 element normal.active {
     background-color:            inherit;
-    text-color:                  @foreground;
+    text-color:                  @background;
 }
 
 element selected.normal {
-    background-color:            @color11;
-    text-color:                  @foreground;
+    background-color:            @color8;
+    text-color:                  @background;
 }
 
 element selected.urgent {
     background-color:            inherit;
-    text-color:                  @foreground;
+    text-color:                  @background;
 }
 
 element selected.active {
     background-color:            @color11;
-    text-color:                  @foreground;
+    text-color:                  @background;
 }
 
 element alternate.normal {
     background-color:            inherit;
-    text-color:                  @foreground;
+    text-color:                  @color7;
 }
 
 element alternate.urgent {
