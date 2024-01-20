@@ -201,6 +201,22 @@ require('lazy').setup({
     },
   },
 
+  -- DAP debugger plugins
+  {
+    'theHamsta/nvim-dap-virtual-text'
+  },
+
+  {
+    'leoluz/nvim-dap-go'
+  },
+
+  {
+    'rcarriga/nvim-dap-ui',
+    dependencies = {
+      'mfussenegger/nvim-dap',
+    }
+  },
+
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -396,6 +412,14 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- Debugging keymaps
+require('dapui').setup()
+require('dap-go').setup()
+vim.api.nvim_set_keymap('n', '<leader>dt', ':DapUiToggle<CR>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>db', ':DapToggleBreakpoint<CR>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>dc', ':DapContinue<CR>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>dr', ':lua require("dapui").open({reset = true})<CR>', {noremap=true})
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
