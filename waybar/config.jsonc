@@ -7,7 +7,7 @@
     "layer": "top",
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "tray"],
-    "modules-center": ["hyprland/window"],
+    "modules-center": ["mpris"],
     "modules-right": ["backlight","pulseaudio", "network","battery", "clock"],
     // Modules configuration
     "hyprland/workspaces": {
@@ -18,7 +18,7 @@
      },
     "hyprland/window": {
         "format": "{}",
-        "max-length": 50
+        "max-length": 25
     },
     "tray": {
         // "icon-size": 21,
@@ -73,5 +73,19 @@
         },
         "on-click": "amixer -q set Master 1+ toggle"
     },
+    "mpris": {
+	"format": "{player_icon} {title}: {artist}",
+	"format-paused": "{status_icon} {title}: {artist}",
+	"player-icons": {
+		"default": "▶"
+	},
+	"status-icons": {
+		"paused": "⏸"
+	},
+        "title-len": 30,
+    },
+    "custom/updates": {
+
+    }
 }
 
