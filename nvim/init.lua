@@ -387,7 +387,7 @@ require('nvim-treesitter.configs').setup {
         [']['] = '@class.outer',
       },
       goto_previous_start = {
-        ['[m'] = '@function.outer',
+       ['[m'] = '@function.outer',
         ['[['] = '@class.outer',
       },
       goto_previous_end = {
@@ -416,10 +416,9 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Debugging keymaps
 require('dapui').setup()
 require('dap-go').setup()
-vim.api.nvim_set_keymap('n', '<leader>dt', ':DapUiToggle<CR>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>dt', ':lua require("dapui").toggle()<CR>', {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>db', ':DapToggleBreakpoint<CR>', {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>dc', ':DapContinue<CR>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>dr', ':lua require("dapui").open({reset = true})<CR>', {noremap=true})
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.

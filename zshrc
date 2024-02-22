@@ -125,6 +125,7 @@ alias m="man"
 alias rsdir="cd ~/dev/rust"
 alias pydir="cd ~/dev/python"
 alias godir="cd ~/dev/go"
+alias javadir="cd ~/dev/java"
 alias - -="cd -"
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
