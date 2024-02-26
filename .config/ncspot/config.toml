@@ -1,0 +1,7 @@
+notify = true 
+use_nerdfont = true
+
+[notification_format]
+title = "%title"
+body = "%artists"
+
