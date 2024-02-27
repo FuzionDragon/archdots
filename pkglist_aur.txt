@@ -1,0 +1,14 @@
+android-sdk-platform-tools
+auto-cpufreq
+autofs
+autojump-rs
+debtap
+nix-zsh-completions
+paru
+pfetch-rs
+preload
+pywal-git
+swaylock-effects-git
+swww
+ttf-ifao-grec
+weylus

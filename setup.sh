@@ -9,7 +9,7 @@ cd paru
 makepkg -si
 
 # Reflector Mirrors
-reflector --verbose --country 'United Kingdom' -l 10 rate --save /etc/pacman.d/mirrorlist
+reflector --verbose --country 'United Kingdom' --sort rate rate -l 10 --save /etc/pacman.d/mirrorlist
 
 # Installing Packages
 paru -Syu
