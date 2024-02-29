@@ -6,26 +6,26 @@ Ensure you have the following on your system
 
 ### Git
 
-'''
+```
 pacman -S --needed base-devel git
-'''
+```
 
 ### Stow
 
-'''
+```
 pacman -S stow
-'''
+```
 
 ### Aur Helper (paru)
 
 Check out paru repo in $HOME directory using git
 
-'''
+```
 $ cd $HOME
 $ git clone https://aur.archlinux.org/paru.git
 $ cd paru
 $ makepkg -si
-'''
+```
 
 ## Installation
 
