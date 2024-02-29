@@ -42,7 +42,6 @@ ncdu
 ncspot
 neovim
 networkmanager
-nix
 noto-fonts-cjk
 noto-fonts-emoji
 npm

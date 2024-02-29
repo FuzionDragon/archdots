@@ -2,8 +2,7 @@ android-sdk-platform-tools
 auto-cpufreq
 autofs
 autojump-rs
-debtap
-nix-zsh-completions
+debtap 
 paru
 pfetch-rs
 preload
