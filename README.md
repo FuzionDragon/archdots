@@ -68,3 +68,52 @@ If you are using Aur Packages
 $ paru -S --needed - < pkglist_aur.txt
 ```
 
+### Pywal and Wallpapers
+
+Wallpapers are needed at $HOME/Wallpapers for Pywal to work
+
+Check out wallpapers repo
+
+```
+$ cd $HOME
+$ git clone https://github.com/FuzionDragon/Wallpapers.git
+```
+
+## Other 
+
+### Zsh
+
+Set Zsh as default shell
+
+```
+$ sudo chsh -s /usr/bin/zsh
+$ source $HOME/.zshrc
+```
+
+### Oh-my-zsh
+
+Install Oh-my-zsh
+
+```
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Reload Zshrc
+
+```
+$ source $HOME/.zshrc
+```
+
+### Auto-cpufreq
+
+Instal Auto-cpufreq
+
+```
+$ pacman -S auto-cpufreq
+```
+
+Configure
+
+```
+$ sudo nvim /etc/auto-cpufreq.conf
+```
