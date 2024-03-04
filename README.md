@@ -90,20 +90,6 @@ $ sudo chsh -s /usr/bin/zsh
 $ source $HOME/.zshrc
 ```
 
-### Oh-my-zsh
-
-Install Oh-my-zsh
-
-```
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-Reload Zshrc
-
-```
-$ source $HOME/.zshrc
-```
-
 ### Auto-cpufreq
 
 Instal Auto-cpufreq
