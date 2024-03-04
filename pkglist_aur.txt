@@ -1,6 +1,5 @@
 android-sdk-platform-tools
 auto-cpufreq
-autofs
 autojump-rs
 debtap 
 paru

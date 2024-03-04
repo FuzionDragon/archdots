@@ -52,7 +52,6 @@ okular
 ollama
 openbsd-netcat
 os-prober
-pacman-contrib
 piper
 polkit-gnome
 qemu-base
