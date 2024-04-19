@@ -1,8 +1,7 @@
-# My Arch Dotfiles
+# Arch Dotfiles
 
-My personal Arch dotfiles and packages.
+My personal Arch dotfiles, scripts and packages.
 
-This includes personal configs and scripts for:
 - Hyprland
 - Waybar
 - Neovim
@@ -13,8 +12,7 @@ This includes personal configs and scripts for:
 - Zsh
 - Kitty
 - Weylus
-
-This also acts as my system backup so less relavent setup instructions are included.
+- Firefox
 
 ## Requirements
 
@@ -41,7 +39,7 @@ Certain configs require specific fonts
 $ pacman -S ttf-fira-sans ttf-firacode-nerd ttf-font-awesome ttf-meslo-nerd
 ```
 
-## Installation
+## Installation and Setup
 
 Check out archdots repo in $HOME directory using git
 
@@ -63,6 +61,23 @@ $ stow --adopt .
 $ git restore .
 ```
 
+### Zsh
+
+Set Zsh as default shell
+
+```
+$ chsh -s /usr/bin/zsh
+$ source $HOME/.zshrc
+```
+
+Install Oh-my-zsh
+
+```
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Restart terminal emulator to start setup 
+
 ### Pywal and Wallpapers 
 
 Wallpapers are needed at $HOME/Wallpapers for Pywal to work
@@ -76,7 +91,7 @@ $ git clone https://github.com/FuzionDragon/Wallpapers.git
 
 ## Personal Steps (optional)
 
-Setup for restoring my setup outside of configs
+Steps for restoring my system outside of configs
 
 ### Aur Helper (paru)
 
@@ -103,23 +118,6 @@ Install the pkglist
 ```
 $ paru -S --needed - < pkglist.txt
 ```
-
-### Zsh
-
-Set Zsh as default shell
-
-```
-$ chsh -s /usr/bin/zsh
-$ source $HOME/.zshrc
-```
-
-Install Oh-my-zsh
-
-```
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-Restart terminal emulator to start setup 
 
 ### Auto-cpufreq
 
