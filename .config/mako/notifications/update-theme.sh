@@ -3,6 +3,7 @@
 . "${HOME}/.cache/wal/colors.sh"
 
 conffile="${HOME}/.config/mako/config"
+wallpaper="$(swww query | awk '{print $8}')"
 
 # Associative array, color name -> color code.
 declare -A colors
@@ -18,4 +19,4 @@ done
 
 makoctl reload
 # additionally here you can add some notify-send test notification
-notify-send "Wallpaper Changed"
+notify-send "Wallpaper Changed" "Wallpaper = $wallpaper"

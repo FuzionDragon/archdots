@@ -135,3 +135,7 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # Zoxide Setup
 eval "$(zoxide init --cmd cd zsh)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
