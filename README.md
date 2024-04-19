@@ -2,7 +2,7 @@
 
 My personal Arch dotfiles and packages.
 
-This includes personal configs for:
+This includes personal configs and scripts for:
 - Hyprland
 - Waybar
 - Neovim
