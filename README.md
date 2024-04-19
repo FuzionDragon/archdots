@@ -126,11 +126,11 @@ Restart terminal emulator to start setup
 Install Auto-cpufreq
 
 ```
-$ pacman -S auto-cpufreq
+$ paru -S auto-cpufreq
 ```
 
 Configure
 
 ```
-$ sudo nvim /etc/auto-cpufreq.conf
+$ nvim /etc/auto-cpufreq.conf
 ```
