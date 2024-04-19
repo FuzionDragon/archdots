@@ -9,10 +9,10 @@ This includes personal configs and scripts for:
 - Rofi
 - Pywal
 - Mako
+- Ncspot
 - Zsh
 - Kitty
-- Lf
-- Ncspot
+- Weylus
 
 This also acts as my system backup so less relavent setup instructions are included.
 
@@ -44,7 +44,7 @@ $ cd archdots
 ### Use GNU stow to create symlinks
 
 ```
-$Kit stow .
+$ stow .
 ```
 
 **If there are any existing dotfiles on the system**
@@ -63,6 +63,14 @@ Check out wallpapers repo if you want to use my favourite wallpapers
 ```
 $ cd $HOME
 $ git clone https://github.com/FuzionDragon/Wallpapers.git
+```
+
+### Fonts
+
+Certain configs require specific fonts
+
+```
+$ pacman -S ttf-fira-sans ttf-firacode-nerd ttf-font-awesome ttf-meslo-nerd
 ```
 
 ## Personal Steps (optional)
@@ -89,6 +97,8 @@ pacman -S reflector
 reflector --verbose --country 'United Kingdom' --sort rate -l 10 --save /etc/pacman.d/mirrorlist
 ```
 
+Install the pkglist
+
 ```
 $ pacman -S --needed - < pkglist.txt
 ```
@@ -101,6 +111,14 @@ Set Zsh as default shell
 $ sudo chsh -s /usr/bin/zsh
 $ source $HOME/.zshrc
 ```
+
+Install Oh-my-zsh
+
+```
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Restart terminal emulator to start setup 
 
 ### Auto-cpufreq
 
