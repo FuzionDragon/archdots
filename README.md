@@ -94,14 +94,14 @@ $ makepkg -si
 For faster package downloads
 
 ```
-pacman -S reflector
-reflector --verbose --country 'United Kingdom' --sort rate -l 10 --save /etc/pacman.d/mirrorlist
+$ paru -S reflector
+$ reflector --verbose --country 'United Kingdom' --sort rate -l 10 --save /etc/pacman.d/mirrorlist
 ```
 
 Install the pkglist
 
 ```
-$ pacman -S --needed - < pkglist.txt
+$ paru -S --needed - < pkglist.txt
 ```
 
 ### Zsh
@@ -109,7 +109,7 @@ $ pacman -S --needed - < pkglist.txt
 Set Zsh as default shell
 
 ```
-$ sudo chsh -s /usr/bin/zsh
+$ chsh -s /usr/bin/zsh
 $ source $HOME/.zshrc
 ```
 
