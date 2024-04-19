@@ -32,6 +32,15 @@ pacman -S --needed base-devel git
 pacman -S stow
 ```
 
+### Fonts
+
+Certain configs require specific fonts
+
+
+```
+$ pacman -S ttf-fira-sans ttf-firacode-nerd ttf-font-awesome ttf-meslo-nerd
+```
+
 ## Installation
 
 Check out archdots repo in $HOME directory using git
@@ -63,14 +72,6 @@ Check out wallpapers repo if you want to use my favourite wallpapers
 ```
 $ cd $HOME
 $ git clone https://github.com/FuzionDragon/Wallpapers.git
-```
-
-### Fonts
-
-Certain configs require specific fonts
-
-```
-$ pacman -S ttf-fira-sans ttf-firacode-nerd ttf-font-awesome ttf-meslo-nerd
 ```
 
 ## Personal Steps (optional)
