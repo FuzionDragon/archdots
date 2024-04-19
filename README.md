@@ -1,5 +1,21 @@
 # My Arch Dotfiles
 
+My personal Arch dotfiles and packages.
+
+This includes personal configs for:
+- Hyprland
+- Waybar
+- Neovim
+- Rofi
+- Pywal
+- Mako
+- Zsh
+- Kitty
+- Lf
+- Ncspot
+
+This also acts as my system backup so less relavent setup instructions are included.
+
 ## Requirements
 
 Ensure you have the following on your system
@@ -16,6 +32,43 @@ pacman -S --needed base-devel git
 pacman -S stow
 ```
 
+## Installation
+
+Check out archdots repo in $HOME directory using git
+
+```
+$ git clone https://github.com/FuzionDragon/archdots.git
+$ cd archdots
+```
+
+### Use GNU stow to create symlinks
+
+```
+$Kit stow .
+```
+
+**If there are any existing dotfiles on the system**
+
+```
+$ stow --adopt .
+$ git restore .
+```
+
+### Pywal and Wallpapers 
+
+Wallpapers are needed at $HOME/Wallpapers for Pywal to work
+
+Check out wallpapers repo if you want to use my favourite wallpapers
+
+```
+$ cd $HOME
+$ git clone https://github.com/FuzionDragon/Wallpapers.git
+```
+
+## Personal Steps (optional)
+
+Setup for restoring my setup outside of configs
+
 ### Aur Helper (paru)
 
 Check out paru repo in $HOME directory using git
@@ -27,31 +80,9 @@ $ cd paru
 $ makepkg -si
 ```
 
-## Installation
+### Install Packages using pkglist in the archdots repo 
 
-First, check out the dotfiles repo in $HOME directory using git
-
-```
-$ git clone https://github.com/FuzionDragon/archdots.git
-$ cd archdots
-```
-
-### Use GNU stow to create symlinks
-
-```
-$ stow .
-```
-
-**If there are any existing dotfiles on the system**
-
-```
-$ stow --adopt .
-$ git restore .
-```
-
-### Install Packages using pkglist in the archdots repo
-
-If you want faster package downloads
+For faster package downloads
 
 ```
 pacman -S reflector
@@ -61,25 +92,6 @@ reflector --verbose --country 'United Kingdom' --sort rate -l 10 --save /etc/pac
 ```
 $ pacman -S --needed - < pkglist.txt
 ```
-
-If you are using Aur Packages
-
-```
-$ paru -S --needed - < pkglist_aur.txt
-```
-
-### Pywal and Wallpapers
-
-Wallpapers are needed at $HOME/Wallpapers for Pywal to work
-
-Check out wallpapers repo
-
-```
-$ cd $HOME
-$ git clone https://github.com/FuzionDragon/Wallpapers.git
-```
-
-## Other 
 
 ### Zsh
 
@@ -92,7 +104,7 @@ $ source $HOME/.zshrc
 
 ### Auto-cpufreq
 
-Instal Auto-cpufreq
+Install Auto-cpufreq
 
 ```
 $ pacman -S auto-cpufreq
