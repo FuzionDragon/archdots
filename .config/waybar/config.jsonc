@@ -6,7 +6,7 @@
     "spacing": 6, // Gaps between modules (4px)
     "layer": "top",
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "tray"],
+    "modules-left": ["custom/logo", "hyprland/workspaces", "tray"],
     "modules-center": ["mpris"],
     "modules-right": ["backlight","pulseaudio", "network","battery", "clock"],
     // Modules configuration
@@ -84,8 +84,5 @@
 	},
         "title-len": 30,
     },
-    "custom/updates": {
-
-    }
 }
 
