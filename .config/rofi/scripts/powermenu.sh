@@ -8,6 +8,6 @@ case "$chosen" in
 	" Logout") hyprctl dispatch exit ;;
 	" Suspend") systemctl suspend ;;
 	" Hibernate") systemctl hibernate ;;
-	"  Lock") swaylock ;;
+	"  Lock") hyprlock ;;
 	*) exit 1 ;;
 esac
