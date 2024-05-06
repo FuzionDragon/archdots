@@ -1,0 +1,2 @@
+https:push.services.mozilla.com:443:.::3	0	19611	https:push.services.mozilla.com:443:push.services.mozilla.com:443::n:1697047105:h3:y:1694455103:n::|n:y:
+https:firefox-api-proxy.cdn.mozilla.net:443:.::3	0	19611	https:firefox-api-proxy.cdn.mozilla.net:443:firefox-api-proxy.cdn.mozilla.net:443::n:1697047105:h3:y:1694455103:n::|n:y:
