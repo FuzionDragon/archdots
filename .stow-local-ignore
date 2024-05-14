@@ -1,4 +1,6 @@
 .git
+.gitignore
+.gitkeep
 bkp.sh
 setup.sh
 README.md
