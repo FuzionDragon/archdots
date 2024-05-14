@@ -12,7 +12,6 @@ ENABLE_CORRECTION="true"
 
 # Binds
 bindkey "^H" backward-delete-word
-bindkey "^C" \E
 
 # Exports for Pfetch
 export PF_INFO="ascii title os host kernel de editor cpu pkgs uptime memory"
@@ -36,8 +35,9 @@ alias pydir="cd ~/dev/python"
 alias godir="cd ~/dev/go"
 alias javadir="cd ~/dev/java"
 alias - -="cd -"
-alias l="ls -la"
-alias cdf="cd && fzf"
+alias ls="lsd"
+alias l="lsd -la"
+alias fd="cd && fzf"
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 NO_STRIP=true
