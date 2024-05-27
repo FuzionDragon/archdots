@@ -5,6 +5,7 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config.enable_wayland = false
+config.enable_scroll_bar = false
 
 -- and finally, return the configuration to wezterm
 return config

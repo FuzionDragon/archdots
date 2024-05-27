@@ -71,7 +71,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "amixer -q set Master 1+ toggle"
+        "on-click": "kitty pulsemixer"
     },
     "mpris": {
 	"format": "{player_icon} {title}: {artist}",
