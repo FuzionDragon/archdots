@@ -1,8 +1,3 @@
-# Powerlevel10k Theme
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Plugin Manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d $ZINIT_HOME ]; then 
@@ -12,11 +7,11 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Plugins
-zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+#zinit light jeffreytse/zsh-vi-mode
 
 # Completions
 autoload -U compinit && compinit
@@ -47,6 +42,7 @@ export EDITOR="nvim"
 
 # Alias'
 alias v="nvim"
+alias fetch="fastfetch"
 alias hyprconf="v ~/.config/hypr/hyprland.conf"
 alias nvimconf="v ~/.config/nvim/init.lua"
 alias zshconf="v ~/.zshrc"
@@ -75,6 +71,9 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Fzf Setup
 eval "$(fzf --zsh)"
+
+# Oh-my-posh Prompt Setup
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.toml)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

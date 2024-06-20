@@ -74,5 +74,6 @@ return {
         performance_mode = false,    -- Disable "Performance Mode" on all buffers.
     },
     'stevearc/oil.nvim',
+    'windwp/nvim-ts-autotag',
 
 }
