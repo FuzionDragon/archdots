@@ -6,12 +6,14 @@ if [ ! -d $ZINIT_HOME ]; then
 fi
 source "${ZINIT_HOME}/zinit.zsh"
 
+# Add Cargo binary to PATH
+PATH=$PATH:~/.cargo/bin
+
 # Plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-#zinit light jeffreytse/zsh-vi-mode
 
 # Completions
 autoload -U compinit && compinit
@@ -63,8 +65,6 @@ alias ls="lsd"
 alias l="lsd -la"
 
 NO_STRIP=true
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Zoxide Setup
 eval "$(zoxide init --cmd cd zsh)"
