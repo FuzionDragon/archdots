@@ -37,6 +37,7 @@ setopt hist_save_no_dups
 # Binds
 bindkey '^K' history-search-backward
 bindkey '^J' history-search-forward
+bindkey 'TAB' autosuggest-accept
 
 # Exports for Pfetch
 export PF_INFO="ascii title os host kernel de editor cpu pkgs uptime memory"

@@ -12,7 +12,12 @@ My personal Arch dotfiles, scripts and packages.
 - Zsh
 - Kitty
 - Weylus
-- Firefox
+- Fastfetch
+- Wireplumber
+
+This README will have all the necessary steps to replicate the essentials of my system
+
+This also includes optional steps which setup everything else that is less relavent
 
 ## Requirements
 
@@ -34,10 +39,14 @@ pacman -S stow
 
 Certain configs require specific fonts
 
+Download the fonts using
 
 ```
-$ pacman -S ttf-fira-sans ttf-firacode-nerd ttf-font-awesome ttf-meslo-nerd
+$ pacman -S ttf-fira-sans ttf-iosevka-nerd ttf-font-awesome ttf-meslo-nerd 
 ```
+
+Or install alongside the rest of the packages later
+
 
 ## Installation and Setup
 
@@ -67,16 +76,9 @@ Set Zsh as default shell
 
 ```
 $ chsh -s /usr/bin/zsh
-$ source $HOME/.zshrc
 ```
 
-Install Oh-my-zsh
-
-```
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-Restart terminal emulator to start setup 
+Restart the terminal emulator or source the config to apply config
 
 ### Pywal and Wallpapers 
 
@@ -89,11 +91,20 @@ $ cd $HOME
 $ git clone https://github.com/FuzionDragon/Wallpapers.git
 ```
 
-## Personal Steps (optional)
+
+## Optional Steps
 
 Steps for restoring my system outside of configs
 
-### Aur Helper (paru)
+### Configure Pacman
+
+Edit the config file
+
+```
+$ nvim /etc/pacman.conf 
+```
+
+### Install Aur Helper (paru)
 
 Check out paru repo in $HOME directory using git
 
@@ -113,10 +124,18 @@ $ paru -S reflector
 $ reflector --verbose --country 'United Kingdom' --sort rate -l 10 --save /etc/pacman.d/mirrorlist
 ```
 
-Install the pkglist
+Install the essential packages
 
 ```
+$ cd $HOME/archdots
 $ paru -S --needed - < pkglist.txt
+```
+
+To install the option packages
+
+```
+$ cd $HOME/archdots
+$ paru -S --needed - < optional_pkglist.txt
 ```
 
 ### Auto-cpufreq
@@ -131,4 +150,22 @@ Configure
 
 ```
 $ nvim /etc/auto-cpufreq.conf
+```
+
+### Grub Config
+
+```
+$ nvim /etc/default/grub
+```
+
+For dual-booting, change the line in grub config
+
+```
+GRUB_DISABLE_OS_PROBER=false
+```
+
+Then run the command
+
+```
+$ grub-mkconfig -o /boot/grub/grub.cfg
 ```
