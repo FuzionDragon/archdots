@@ -11,7 +11,6 @@ My personal Arch dotfiles, scripts and packages.
 - Ncspot
 - Zsh
 - Kitty
-- Weylus
 - Fastfetch
 - Wireplumber
 
