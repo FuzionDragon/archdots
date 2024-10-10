@@ -2,6 +2,8 @@
 
 My personal Arch dotfiles, scripts and packages.
 
+These include my configs for:
+
 - Hyprland
 - Waybar
 - Neovim
@@ -13,10 +15,14 @@ My personal Arch dotfiles, scripts and packages.
 - Kitty
 - Fastfetch
 - Wireplumber
+- Gammastep
 
-This README will have all the necessary steps to replicate the essentials of my system
+This README will have all the necessary steps to replicate the essentials of my system as well as other optional configurations.
 
-This also includes optional steps which setup everything else that is less relavent
+You can run the interactive setup script **Work in progress** which will go through all the steps needed to replicate this system. The only requirement needed is that this repo needs to be in your home directory.
+
+Otherwise, the manual setup steps are down below.
+
 
 ## Requirements
 
@@ -167,4 +173,15 @@ Then run the command
 
 ```
 $ grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+### Quickemu
+
+There is a Hyprland binding for running a Windows 10 vm.
+
+Of course this doesn't come preinstalled on Arch so this needs to be installed.
+
+```
+$ cd ~
+$ quickget windows 10
 ```
