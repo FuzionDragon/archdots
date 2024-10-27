@@ -48,7 +48,7 @@ unrar
 unzip
 piper
 clamav
-auto-cpufreq
+tlp
 dmidecode
 mpv
 paru-debug

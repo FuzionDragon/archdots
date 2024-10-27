@@ -56,6 +56,7 @@ alias roficonf="cd ~/.config/rofi"
 alias hs="cd ~/.config/hypr/scripts && ls"
 alias rs="cd ~/.config/rofi/scripts && ls"
 alias bc="cd ../"
+alias bbc="cd ../../"
 alias hc="cd ~"
 alias m="man"
 alias rsdir="cd ~/dev/rust"
@@ -65,6 +66,7 @@ alias javadir="cd ~/dev/java"
 alias - -="cd -"
 alias ls="lsd"
 alias l="lsd -la"
+alias icat="kitty +kitten icat"
 
 NO_STRIP=true
 

@@ -143,19 +143,29 @@ $ cd $HOME/archdots
 $ paru -S --needed - < optional_pkglist.txt
 ```
 
-### Auto-cpufreq
+**Note: These pkglist files don't have Intel and Nvidia cpu and gpu drivers, so they will need to be installed seperately if needed**
 
-Install Auto-cpufreq
+### TLP
+
+Install TLP
 
 ```
-$ paru -S auto-cpufreq
+$ paru -S tlp
 ```
 
 Configure
 
 ```
-$ nvim /etc/auto-cpufreq.conf
+$ nvim /etc/tlp.conf
 ```
+
+Then reboot or run
+
+```
+$ tlp start
+```
+
+You may need to add it as a systemd service before running the above command
 
 ### Grub Config
 
@@ -184,4 +194,10 @@ Of course this doesn't come preinstalled on Arch so this needs to be installed.
 ```
 $ cd ~
 $ quickget windows 10
+```
+
+If there isn't a need for this binding you can remove the binding in the Hyprland bindings config
+
+```
+$ nvim ~/.config/hypr/bindings.conf
 ```
