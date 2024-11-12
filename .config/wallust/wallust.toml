@@ -23,7 +23,7 @@ color_space = "lab"
 # harddark - harddark16 - harddarkcomp - harddarkcomp16
 # softdark - softdark16 - softdarkcomp - softdarkcomp16
 # softlight - softlight16 - softlightcomp - softlightcomp16
-palette = "dark"
+palette = "softlight16"
 
 # Ensures a "readable contrast" (OPTIONAL, disabled by default)
 # Should only be enabled when you notice an unreadable contrast frequently happening
@@ -39,10 +39,5 @@ palette = "dark"
 #alpha = 100
 
 [templates]
-# NOTE: prefer '' over "" for paths, avoids escaping.
-# template: A relative path that points to a file where wallust.toml is located, usually at `~/.config/wallust/`.
-# target: Absolute path in which to place a file with generated templated values.
-# If one is a directory, the other one NEEDS to also be one, one line example below
-# zathura = { template = 'zathura', target = '~/.config/zathura/zathurarc' }
 hypr = { src = 'hyprland-colors.conf', dst = '~/.config/hypr/colors.conf'}
 waybar = { src = "waybar-colors.css", dst = "~/.config/waybar/colors.css" }
