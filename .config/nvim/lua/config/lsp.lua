@@ -14,6 +14,9 @@ local servers = {
 	pyright = {},
 	html = { filetypes = { 'html', 'twig', 'hbs' } },
 	gopls = {},
+    clangd = {
+
+    },
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

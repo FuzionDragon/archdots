@@ -9,6 +9,9 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Add Cargo binary to PATH
 PATH=$PATH:~/.cargo/bin
 
+# Man export to Neovim
+export MANPAGER="nvim +Man!"
+
 # Plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -57,8 +60,10 @@ alias hs="cd ~/.config/hypr/scripts && ls"
 alias rs="cd ~/.config/rofi/scripts && ls"
 alias bc="cd ../"
 alias bbc="cd ../../"
-alias hc="cd ~"
 alias m="man"
+#alias vcfg="v $(find ~/.config | fzf)"
+#alias vdot="v $(find ~/dotfiles | fzf)"
+#alias vdev="v $(find ~/dev | fzf)"
 alias rsdir="cd ~/dev/rust"
 alias pydir="cd ~/dev/python"
 alias godir="cd ~/dev/go"
@@ -67,6 +72,8 @@ alias - -="cd -"
 alias ls="lsd"
 alias l="lsd -la"
 alias icat="kitty +kitten icat"
+alias unmount="sudo umount /mnt/External"
+alias acat="for FILE in *; do echo $FILE && icat $FILE; done"
 
 NO_STRIP=true
 

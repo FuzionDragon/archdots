@@ -28,10 +28,22 @@ paru -S reflector
 sudo reflector --verbose --country 'United Kingdom' --sort rate -l 10 --save /etc/pacman.d/mirrorlist
 
 while true; do
-    read -p "Do you want to install optional packages? (Y/N): " answer
+    read -p "Do you want to install all packages? (Y/N): " answer
     case $answer in
-        [Yy]* ) paru -S --neeeded - < pkglist.txt; break;;
+        [Yy]* ) paru -S --neeeded - < ~/pkglist.txt; break;;
         [Nn]*) break;;
         * ) echo "Please answer Y or N.";;
     esac
 done
+
+# Setup Kanata
+while true; do
+    read -p "Do you want to install all packages? (Y/N): " answer
+    case $answer in
+        [Yy]* ) sudo cp ~/.config/kanata/config.kbd; break;;
+        [Nn]*) break;;
+        * ) echo "Please answer Y or N.";;
+    esac
+done
+
+# Setting up all Systemd services

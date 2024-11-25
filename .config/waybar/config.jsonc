@@ -53,10 +53,9 @@
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "on-click": "~/.config/rofi/scripts/rofi-wifi-menu.sh",
+        "on-click": "~/scripts/rofi-wifi-menu.sh",
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -64,8 +63,8 @@
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": " ",
+    "format-source": "   {volume}% ",
+        "format-source-muted": "  ",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
