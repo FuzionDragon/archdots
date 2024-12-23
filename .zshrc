@@ -18,6 +18,9 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+
 # Completions
 autoload -U compinit && compinit
 zinit cdreplay -q
@@ -59,11 +62,12 @@ alias roficonf="cd ~/.config/rofi"
 alias hs="cd ~/.config/hypr/scripts && ls"
 alias rs="cd ~/.config/rofi/scripts && ls"
 alias bc="cd ../"
-alias bbc="cd ../../"
+alias bcc="cd ../../"
 alias m="man"
-#alias vcfg="v $(find ~/.config | fzf)"
-#alias vdot="v $(find ~/dotfiles | fzf)"
-#alias vdev="v $(find ~/dev | fzf)"
+alias vfzf="~/scripts/vfzf.sh"
+alias vcfg="~/scripts/vfzf.sh ~/.config"
+alias vdot="~/scripts/vfzf.sh ~/dotfiles"
+alias vdev="~/scripts/vfzf.sh ~/dev"
 alias rsdir="cd ~/dev/rust"
 alias pydir="cd ~/dev/python"
 alias godir="cd ~/dev/go"
@@ -73,7 +77,7 @@ alias ls="lsd"
 alias l="lsd -la"
 alias icat="kitty +kitten icat"
 alias unmount="sudo umount /mnt/External"
-alias acat="for FILE in *; do echo $FILE && icat $FILE; done"
+alias acat="~/scripts/rendercwd.sh"
 
 NO_STRIP=true
 

@@ -1,22 +1,22 @@
 local servers = {
 	lua_ls = {
-        Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-            diagnostics = {
-                disable = { "lowercase-global" }
-            }
-        },
+    Lua = {
+      workspace = { checkThirdParty = false },
+      telemetry = { enable = false },
+      diagnostics = {
+        disable = { "lowercase-global" }
+      }
     },
+  },
 	eslint = {},
 	rust_analyzer = {},
 	tsserver = {},
 	pyright = {},
 	html = { filetypes = { 'html', 'twig', 'hbs' } },
 	gopls = {},
-    clangd = {
+  clangd = {
 
-    },
+  },
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

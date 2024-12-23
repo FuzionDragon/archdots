@@ -22,3 +22,6 @@ require("colorscheme")
 require("config.treesitter")
 require("config.lsp")
 require("config.nvim-ts-autotag")
+require("config.render-markdown")
+require("ibl").setup()
+require('guess-indent').setup {}

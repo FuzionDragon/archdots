@@ -10,13 +10,21 @@ vim.keymap.set("i", "<C-i>", "<CR>")
 vim.keymap.set("n", "<leader><leader>", ":so<CR>")
 
 -- Moving Visual Select  
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv'") 
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv'") 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv'")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv'")
+
+-- Jumping to previous search item
+vim.keymap.set("n", "<C-/>", "/<CR>")
+vim.keymap.set("n", "<C-.>", "?<CR>")
+
+-- Jumping Visual Select
+vim.keymap.set("v", "<C-/>", "/'<',><CR>")
+vim.keymap.set("v", "<C-.>", "?'<',><CR>")
 
 -- Moves below line to current
 vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+--vim.keymap.set("n", "n", "nzzzv")
+--vim.keymap.set("n", "N", "Nzzzv")
 
 -- Half Page Jumping
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -60,3 +68,7 @@ vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 -- Vim Fugitive
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
+
+-- Go to Definition or Declaration
+vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
