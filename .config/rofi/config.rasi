@@ -33,20 +33,20 @@ window {
     fullscreen:                   false;
     enabled:                      true;
     border-radius:                10px;
-    background-color:             #2F4F4F;
+    background-color:             #293E40;
 }
 
 /* ---- Listbox ---- */
 listbox {
     spacing:                     0px;
-    background-color:            #2F4F4F;
+    background-color:            #293E40;
     orientation:                 vertical;
     children:                    [ "listview" ];
 }
 
 /* ---- Dummy ---- */
 dummy {
-    background-color:            #2F4F4F;
+    background-color:             #293E40;
 }
 
 /* ---- Inputbar ---- */
@@ -56,13 +56,13 @@ inputbar {
     spacing:                      10px;
     padding:                      15px;
     border-color:                 @color3;
-    background-color:             #2F4F4F;
+    background-color:             #293E40;
     children:                     [ "entry" ];
 }
 
 entry {
     enabled:                      true;
-    background-color:             #2F4F4F;
+    background-color:             #293E40;
     border-color:		  @color3;
     text-color:                   inherit;
     cursor:                       text;
@@ -85,7 +85,7 @@ listview {
     spacing:                      0px;
     padding:                      0px;
     margin:                       0px;
-    background-color:             #2F4F4F;
+    background-color:             #293E40;
     border:0px;
 }
 

@@ -25,3 +25,4 @@ require("config.nvim-ts-autotag")
 require("config.render-markdown")
 require("ibl").setup()
 require('guess-indent').setup {}
+require("colorizer").setup()

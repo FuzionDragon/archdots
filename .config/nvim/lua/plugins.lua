@@ -116,5 +116,5 @@ return {
     ---@type render.md.UserConfig
     opts = {},
   },
-
+  'norcalli/nvim-colorizer.lua'
 }

@@ -11,7 +11,7 @@
 
 # How the image is parse, in order to get the colors:
 # full - resized - wal - thumb -  fastresize - kmeans
-backend = "resized"
+backend = "wal"
 
 # What color space to use to produce and select the most prominent colors:
 # lab - labmixed - lch - lchmixed
@@ -28,7 +28,7 @@ palette = "softlight16"
 # Ensures a "readable contrast" (OPTIONAL, disabled by default)
 # Should only be enabled when you notice an unreadable contrast frequently happening
 # with your images. The reference color for the contrast is the background color.
-#check_contrast = true
+check_contrast = true
 
 # Color saturation, between [1% and 100%] (OPTIONAL, disabled by default)
 # usually something higher than 50 increases the saturation and below
@@ -39,5 +39,5 @@ palette = "softlight16"
 #alpha = 100
 
 [templates]
-hypr = { src = 'hyprland-colors.conf', dst = '~/.config/hypr/colors.conf'}
-waybar = { src = "waybar-colors.css", dst = "~/.config/waybar/colors.css" }
+hypr = { src = 'hypr-colors.conf', dst = '~/.config/hypr/colors.conf'}
+waybar = { src = 'waybar-colors.css', dst = '~/.config/waybar/colors.css' }
