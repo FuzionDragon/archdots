@@ -1,9 +1,21 @@
+local lspconfig = require('config.lspconfig')
+local obsidian = require('config.obsidian')
+local diagnostics = require('config.diagnostics')
+local toggleterm = require('config.toggle-term')
+--local colorizer = require('config.colorizer')
+
 return {
 	'EdenEast/nightfox.nvim',
-  'folke/tokyonight.nvim',
+  'williamboman/mason.nvim',
 	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.6',
-		dependencies = { 'nvim-lua/plenary.nvim' }
+		dependencies = {
+      'nvim-lua/plenary.nvim',
+      {
+        'echasnovski/mini.icons',
+        opts = {},
+      },
+    },
 	},
 	{
 		'nvim-treesitter/nvim-treesitter',
@@ -26,44 +38,8 @@ return {
     }
   },
   {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      { 'williamboman/mason.nvim', config = true },
-        'williamboman/mason-lspconfig.nvim',
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
-        'folke/neodev.nvim',
-      },
-  },
-  {
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-nvim-lsp',
-      'rafamadriz/friendly-snippets',
-    },
-    opts = function(_, opts)
-      opts.sources = opts.sources or {}
-      table.insert(opts.sources, {
-        name = "lazydev",
-        group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-      })
-    end,
-  },
-  {
-    "folke/lazydev.nvim",
-    ft = "lua", -- only load on lua files
-    opts = {
-      library = {
-        -- See the configuration section for more details
-        -- Load luvit types when the `vim.uv` word is found
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-      },
-    },
-  },
-  {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = { 'echasnovski/mini.icons' },
     opts = {
     options = {
       icons_enabled = true,
@@ -86,8 +62,15 @@ return {
     post_hook = true,             -- Function to run after the scrolling animation ends
     performance_mode = false,    -- Disable "Performance Mode" on all buffers.
   },
-  'stevearc/oil.nvim',
-  'windwp/nvim-ts-autotag',
+  {
+    'stevearc/oil.nvim',
+    dependencies = {
+      {
+        'echasnovski/mini.icons',
+        opts = {},
+      },
+    },
+  },
   {
     "S1M0N38/love2d.nvim",
     cmd = "LoveRun",
@@ -110,11 +93,26 @@ return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
   },
-  'norcalli/nvim-colorizer.lua'
+  {
+    'kylechui/nvim-surround',
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  },
+  'norcalli/nvim-colorizer.lua',
+  lspconfig,
+--  diagnostics,
+  toggleterm,
+--  obsidian,
+ -- colorizer,
 }

@@ -6,6 +6,12 @@ if [ ! -d $ZINIT_HOME ]; then
 fi
 source "${ZINIT_HOME}/zinit.zsh"
 
+export WSM_USE_SESSION_SLICE=true
+# Uswm startup
+if uwsm check may-start && uwsm select; then
+	exec systemd-cat -t uwsm_start uwsm start default
+fi
+
 # Add Cargo binary to PATH
 PATH=$PATH:~/.cargo/bin
 

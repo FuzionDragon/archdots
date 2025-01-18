@@ -20,9 +20,14 @@ require("oil").setup(require("config.oil"))
 require("keymaps")
 require("colorscheme")
 require("config.treesitter")
-require("config.lsp")
-require("config.nvim-ts-autotag")
 require("config.render-markdown")
 require("ibl").setup()
 require('guess-indent').setup {}
-require("colorizer").setup()
+require("colorizer").setup {
+  'css';
+  'javascript';
+  'typescript';
+  html = {
+    mode = 'foreground';
+  }
+}

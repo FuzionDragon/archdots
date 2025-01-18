@@ -3,7 +3,7 @@ local mark = require('harpoon.mark')
 local ui = require('harpoon.ui')
 
 -- Neovim Maps
-vim.keymap.set("n", "<leader>pv", ":Oil<CR>") 
+vim.keymap.set("n", "<leader>pv", ":Oil<CR>")
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<C-i>", "<CR>")
 vim.keymap.set("i", "<C-i>", "<CR>")
@@ -68,6 +68,9 @@ vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 -- Vim Fugitive
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
+
+-- Guess Indent
+vim.keymap.set('n', '<leader>gi', ':GuessIndent<CR>')
 
 -- Go to Definition or Declaration
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })

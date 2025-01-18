@@ -32,7 +32,21 @@ final_space = true
   newline = true
 
   [[blocks.segments]]
-    template = '{{ .Path }}'
+    foreground = 'blue'
+    background = 'transparent'
+    type = 'os'
+    style = 'plain'
+    template = "{{ if .WSL }}WSL at {{ end }}{{.Icon}} "
+
+  [[blocks.segments]]
+    foreground = "yellow"
+    background = 'transparent'
+    type = "root"
+    style = "plain"
+    template = " "
+
+  [[blocks.segments]]
+    template = ' {{ .Path }}'
     foreground = 'blue'
     background = 'transparent'
     type = 'path'

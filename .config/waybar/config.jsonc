@@ -6,7 +6,7 @@
   "spacing": 6, // Gaps between modules (4px)
   "layer": "top",
   // Choose the order of the modules
-  "modules-left": ["custom/logo", "hyprland/workspaces", "hyprland/submap", "tray"],
+  "modules-left": ["custom/logo", "hyprland/workspaces", "custom/pacman", "hyprland/submap", "tray"],
   "modules-center": ["mpris"],
   "modules-right": ["backlight","pulseaudio", "network","battery", "clock"],
   // Modules configuration
@@ -51,11 +51,15 @@
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-wifi": "{signalStrength}% ",
     "format-ethernet": "{ipaddr}/{cidr} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
     "on-click": "~/scripts/rofi-wifi-menu.sh",
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
@@ -63,7 +67,7 @@
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-muted": " {format_source}",
-  "format-source": "   {volume}% ",
+  "format-source": "  {volume}% ",
     "format-source-muted": "  ",
     "format-icons": {
       "headphone": "",
@@ -88,5 +92,12 @@
     "title-len": 30,
     "max-length": 50,
   },
+  "custom/pacman": {
+    "format": "{}   ",
+    "interval": 3600,                     // every hour
+    "exec": "checkupdates | wc -l",       // # of updates
+    "exec-if": "exit 0",                  // always run; consider advanced run conditions
+    "signal": 8
+  }
 }
 

@@ -10,6 +10,13 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = true
 
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.undotree = os.getenv("HOME") .. "/.vim/undodir"
+vim.undofile = true
+
+vim.opt.guicursor = ""
+
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 

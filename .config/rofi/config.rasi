@@ -13,7 +13,7 @@ configuration {
 }
 
 /* ---- Load pywal colors (custom wal template) ---- */
-@import "~/.cache/wal/colors-rofi-pywal.rasi" 
+@import "~/.colour_schemes/colors.rasi"
 
 /* ---- Window ---- */
 window {

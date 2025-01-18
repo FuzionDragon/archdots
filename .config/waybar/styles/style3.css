@@ -1,4 +1,4 @@
-@import "/home/davidl/.cache/wal/colors-waybar.css";
+@import "/home/davidl/.colour_schemes/colors.css";
 
 * {
   /* `otf-font-awesome` is required to be installed for icons */
@@ -27,7 +27,7 @@ window#waybar.empty {
   border-radius: 8px;
   background-color: #293E40;
   padding: 0 8px;
-  box-shadow: 0.5 0.5 0.5 0.5px #151515;
+  box-shadow: 0.7 0.7 0.7 0.7px #151515;
   transition-property: background-color;
   transition-duration: .5s;
 }
@@ -37,7 +37,7 @@ window#waybar.empty {
   border-radius: 8px;
   background-color: #293E40;
   padding: 0 8px;
-  box-shadow: 0.5 0.5 0.5 0.5px #151515;
+  box-shadow: 0.7 0.7 0.7 0.7px #151515;
   transition-property: background-color;
   transition-duration: .5s;
 }
@@ -47,7 +47,7 @@ window#waybar.empty {
   border-radius: 8px;
   background-color: #293E40;
 	padding: 0 8px;
-  box-shadow: 0.5 0.5 0.5 0.5px #151515;
+  box-shadow: 0.7 0.7 0.7 0.7px #151515;
   transition-property: background-color;
   transition-duration: .5s;
 }
@@ -132,6 +132,11 @@ button {
   padding: 0 5px;
 }
 
+#custom-pacman {
+  color: @foreground;
+  padding: 0 5px;
+}
+
 #custom-next-track {
   color: @foreground;
   padding: 0 5px;
@@ -209,4 +214,14 @@ label:focus {
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
   background-color: #eb4d4b;
+}
+
+tooltip {
+  border: 1px solid @color3;
+  border-radius: 8px;
+  background-color: #293E40;
+  padding: 0 4px;
+  box-shadow: 0.7 0.7 0.7 0.7px #151515;
+  transition-property: background-color;
+  transition-duration: .5s;
 }

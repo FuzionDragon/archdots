@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
 killall waybar
-waybar
+uwsm app -- waybar

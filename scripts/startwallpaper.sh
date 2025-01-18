@@ -1,9 +1,8 @@
 #!/usr/bin/bash
 dir=~/Wallpapers/$1
-waybar=~/scripts/refreshwaybar.sh
 mako=~/scripts/update-theme.sh
 
-swww-daemon
+uwsm app -- swww-daemon
 swww img $dir --transition-type random
-$waybar
+uwsm app -- waybar
 $mako
