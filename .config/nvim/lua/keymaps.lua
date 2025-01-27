@@ -5,8 +5,6 @@ local ui = require('harpoon.ui')
 -- Neovim Maps
 vim.keymap.set("n", "<leader>pv", ":Oil<CR>")
 vim.keymap.set("i", "<C-c>", "<Esc>")
-vim.keymap.set("n", "<C-i>", "<CR>")
-vim.keymap.set("i", "<C-i>", "<CR>")
 vim.keymap.set("n", "<leader><leader>", ":so<CR>")
 
 -- Moving Visual Select  
@@ -23,8 +21,6 @@ vim.keymap.set("v", "<C-.>", "?'<',><CR>")
 
 -- Moves below line to current
 vim.keymap.set("n", "J", "mzJ`z")
---vim.keymap.set("n", "n", "nzzzv")
---vim.keymap.set("n", "N", "Nzzzv")
 
 -- Half Page Jumping
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

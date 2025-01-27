@@ -81,7 +81,6 @@ return {
       { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua", desc = "Stop LÖVE" },
     },
   },
-  'thePrimeagen/vim-be-good',
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
@@ -110,9 +109,15 @@ return {
     end
   },
   'norcalli/nvim-colorizer.lua',
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^5', -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },
+  'nvim-treesitter/playground',
   lspconfig,
---  diagnostics,
-  toggleterm,
+  diagnostics,
+--  toggleterm,
 --  obsidian,
- -- colorizer,
+--  colorizer,
 }
