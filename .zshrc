@@ -47,22 +47,22 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 
 # Binds
-bindkey '^K' history-search-backward
-bindkey '^J' history-search-forward
-bindkey 'TAB' autosuggest-accept
-
-# Exports for Pfetch
-export PF_INFO="ascii title os host kernel de editor cpu pkgs uptime memory"
-export EDITOR="nvim"
+bindkey -e '^K' history-search-backward
+bindkey -e '^J' history-search-forward
+bindkey -e -s '^I' '^M'
+bindkey -e 'TAB' autosuggest-accept
+bindkey -e 'TAB' autosuggest-accept
+bindkey -e -s '^F' '. ~/scripts/find_repos.sh^M' 
 
 # Alias'
 alias v="nvim"
+alias vf="fd --type=d --hidden --strip-cwd-prefix --exclude .git && v ."
+alias t="tmux"
+alias ta="tmux a"
 alias fetch="fastfetch"
 alias hyprconf="v ~/.config/hypr/hyprland.conf"
 alias nvimconf="v ~/.config/nvim/init.lua"
 alias code="codium"
-alias hs="cd ~/.config/hypr/scripts && ls"
-alias rs="cd ~/.config/rofi/scripts && ls"
 alias bc="cd ../"
 alias bcc="cd ../../"
 alias m="man"
@@ -71,12 +71,8 @@ alias vfzf="~/scripts/vfzf.sh"
 alias vcfg="~/scripts/vfzf.sh ~/.config"
 alias vdot="~/scripts/vfzf.sh ~/dotfiles"
 alias vdev="~/scripts/vfzf.sh ~/dev"
-alias rsdir="cd ~/dev/rust"
-alias pydir="cd ~/dev/python"
-alias godir="cd ~/dev/go"
-alias javadir="cd ~/dev/java"
 alias ls="eza --grid --color=always --icons=always"
-alias l="eza --long --color=always --icons=always --no-user"
+alias l="eza --long --color=always --icons=always --no-user -a"
 alias icat="kitty +kitten icat"
 alias unmount="sudo umount /mnt/External"
 alias acat="~/scripts/rendercwd.sh"

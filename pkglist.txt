@@ -63,7 +63,6 @@ linux-lts
 linux-zen
 lld
 love
-lsd
 luarocks
 lynis
 mako

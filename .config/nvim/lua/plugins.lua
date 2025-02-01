@@ -2,6 +2,7 @@ local lspconfig = require('config.lspconfig')
 local obsidian = require('config.obsidian')
 local diagnostics = require('config.diagnostics')
 local toggleterm = require('config.toggle-term')
+local lualine = require('config.lualine')
 --local colorizer = require('config.colorizer')
 
 return {
@@ -36,18 +37,6 @@ return {
         escape = true,
       }
     }
-  },
-  {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'echasnovski/mini.icons' },
-    opts = {
-    options = {
-      icons_enabled = true,
-      theme = 'terafox',
-      component_separators = { left = '', right = ''},
-      section_separators = { left = '', right = ''},
-      },
-    },
   },
   {
     'karb94/neoscroll.nvim',
@@ -117,6 +106,7 @@ return {
   'nvim-treesitter/playground',
   lspconfig,
   diagnostics,
+  lualine,
 --  toggleterm,
 --  obsidian,
 --  colorizer,
