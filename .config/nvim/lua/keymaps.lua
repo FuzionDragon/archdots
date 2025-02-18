@@ -1,4 +1,4 @@
-local builtin = require('telescope.builtin')
+local fzf = require('fzf-lua')
 local mark = require('harpoon.mark')
 local ui = require('harpoon.ui')
 
@@ -41,15 +41,14 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 -- Edit all instances of selected word
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- Add execution permission to current file 
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+-- Lazy nvim bind
+vim.keymap.set("n", "<leader>L", ":Lazy<CR>")
 
--- Telescope
-vim.keymap.set('n', '<leader>sf', builtin.find_files, {})
-vim.keymap.set('n', '<leader>sg', builtin.git_files, {})
-vim.keymap.set('n', '<leader>gs', function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") });
-end)
+-- Fzf-lua
+vim.keymap.set('n', '<leader>sf', fzf.files)
+vim.keymap.set('n', '<leader>sg', fzf.git_files)
+vim.keymap.set('n', '<leader>sh', fzf.live_grep)
+vim.keymap.set('n', '<leader>sq', fzf.quickfix)
 
 -- Harpoon
 vim.keymap.set('n', '<C-e>', ui.toggle_quick_menu)
@@ -58,6 +57,10 @@ vim.keymap.set('n', '<leader>e', mark.rm_file)
 
 vim.keymap.set('n', '<C-h>', function() ui.nav_prev() end)
 vim.keymap.set('n', '<C-l>', function() ui.nav_next() end)
+
+-- Fterm
+vim.keymap.set('n', '<C-o>', '<CMD>lua require("FTerm").toggle()<CR>')
+vim.keymap.set('t', '<C-o>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 
 -- Undotree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)

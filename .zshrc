@@ -18,6 +18,8 @@ PATH=$PATH:~/.cargo/bin
 # Man export to Neovim
 export MANPAGER="nvim +Man!"
 
+export BROWSER="librewolf"
+
 # Plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -25,7 +27,7 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 zinit ice depth=1
-zinit light jeffreytse/zsh-vi-mode
+#zinit light jeffreytse/zsh-vi-mode
 
 # Completions
 autoload -U compinit && compinit
@@ -49,10 +51,8 @@ setopt hist_save_no_dups
 # Binds
 bindkey -e '^K' history-search-backward
 bindkey -e '^J' history-search-forward
-bindkey -e -s '^I' '^M'
-bindkey -e 'TAB' autosuggest-accept
-bindkey -e 'TAB' autosuggest-accept
 bindkey -e -s '^F' '. ~/scripts/find_repos.sh^M' 
+bindkey -e -s '^O' '. ~/scripts/tmux-sessionizer.sh^M' 
 
 # Alias'
 alias v="nvim"
@@ -103,3 +103,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # Created by `pipx` on 2024-11-06 16:03:58
 export PATH="$PATH:/home/davidl/.local/bin"
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh

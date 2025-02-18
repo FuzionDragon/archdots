@@ -1,23 +1,13 @@
 local lspconfig = require('config.lspconfig')
-local obsidian = require('config.obsidian')
 local diagnostics = require('config.diagnostics')
-local toggleterm = require('config.toggle-term')
 local lualine = require('config.lualine')
+local fzf = require('config.fzf')
 --local colorizer = require('config.colorizer')
 
 return {
 	'EdenEast/nightfox.nvim',
   'williamboman/mason.nvim',
-	{
-		'nvim-telescope/telescope.nvim', tag = '0.1.6',
-		dependencies = {
-      'nvim-lua/plenary.nvim',
-      {
-        'echasnovski/mini.icons',
-        opts = {},
-      },
-    },
-	},
+  'nvim-lua/plenary.nvim',
 	{
 		'nvim-treesitter/nvim-treesitter',
 		dependencies = {
@@ -80,9 +70,7 @@ return {
   'nmac427/guess-indent.nvim',
   {
     'MeanderingProgrammer/render-markdown.nvim',
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
@@ -104,10 +92,10 @@ return {
     lazy = false, -- This plugin is already lazy
   },
   'nvim-treesitter/playground',
+  'numToStr/FTerm.nvim',
   lspconfig,
   diagnostics,
   lualine,
---  toggleterm,
---  obsidian,
+  fzf,
 --  colorizer,
 }
