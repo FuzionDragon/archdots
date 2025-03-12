@@ -59,8 +59,13 @@ vim.keymap.set('n', '<C-h>', function() ui.nav_prev() end)
 vim.keymap.set('n', '<C-l>', function() ui.nav_next() end)
 
 -- Fterm
-vim.keymap.set('n', '<C-o>', '<CMD>lua require("FTerm").toggle()<CR>')
-vim.keymap.set('t', '<C-o>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+vim.api.nvim_create_user_command('CargoRun', function()
+    require('FTerm').run({'cargo', 'run'})
+end, { bang = true })
+
+vim.keymap.set('n', '<C-Space>', '<CMD>lua require("FTerm").toggle()<CR>')
+vim.keymap.set('t', '<C-Space>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+vim.keymap.set('n', '<leader>bb', ":CargoRun<CR>")
 
 -- Undotree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)

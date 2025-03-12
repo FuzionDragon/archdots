@@ -39,7 +39,7 @@ return {
     opts = {
       keymap = {
         preset = 'none',
-        ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ['<C-g>'] = { 'show', 'show_documentation', 'hide_documentation' },
         ['<C-e>'] = { 'hide' },
         ['<C-y>'] = { 'select_and_accept' },
 
@@ -54,8 +54,13 @@ return {
         nerd_font_variant = 'mono',
       },
       sources = {
-        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+        default = { "lazydev", "lsp", "path", "snippets", "buffer", "markdown" },
         providers = {
+          markdown = {
+            name = 'RenderMarkdown',
+            module = 'render-markdown.integ.blink',
+            fallbacks = { 'lsp' },
+          },
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
@@ -104,6 +109,7 @@ return {
       require('lspconfig').marksman.setup { capabilities = capabilities }
       require('lspconfig').jsonls.setup { capabilities = capabilities }
       require('lspconfig').jdtls.setup { capabilities = capabilities }
+      require('lspconfig').clangd.setup { capabilities = capabilities }
     end,
   },
 }

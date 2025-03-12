@@ -51,8 +51,8 @@ setopt hist_save_no_dups
 # Binds
 bindkey -e '^K' history-search-backward
 bindkey -e '^J' history-search-forward
-bindkey -e -s '^F' '. ~/scripts/find_repos.sh^M' 
-bindkey -e -s '^O' '. ~/scripts/tmux-sessionizer.sh^M' 
+bindkey -e -s '^F' '. ~/scripts/find_repos.sh^M clear^M' 
+bindkey -e -s '^O' '~/scripts/search_system.sh^M'
 
 # Alias'
 alias v="nvim"
@@ -76,6 +76,7 @@ alias l="eza --long --color=always --icons=always --no-user -a"
 alias icat="kitty +kitten icat"
 alias unmount="sudo umount /mnt/External"
 alias acat="~/scripts/rendercwd.sh"
+alias cat="bat"
 
 NO_STRIP=true
 

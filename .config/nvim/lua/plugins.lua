@@ -2,6 +2,7 @@ local lspconfig = require('config.lspconfig')
 local diagnostics = require('config.diagnostics')
 local lualine = require('config.lualine')
 local fzf = require('config.fzf')
+local obsidian = require('config.obsidian')
 --local colorizer = require('config.colorizer')
 
 return {
@@ -97,5 +98,6 @@ return {
   diagnostics,
   lualine,
   fzf,
+  obsidian,
 --  colorizer,
 }

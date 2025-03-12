@@ -10,7 +10,7 @@ These include my configs for:
 - Rofi
 - Pywal
 - Mako
-- Ncspot
+- Ncmpcpp
 - Zsh
 - Kitty
 - Fastfetch
