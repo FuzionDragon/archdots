@@ -105,3 +105,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # Created by `pipx` on 2024-11-06 16:03:58
 export PATH="$PATH:/home/davidl/.local/bin"
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh

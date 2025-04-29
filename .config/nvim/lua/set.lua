@@ -16,6 +16,7 @@ vim.opt.backup = false
 vim.undotree = os.getenv("HOME") .. "/.vim/undodir"
 vim.undofile = true
 
+vim.opt.conceallevel = 1
 vim.opt.guicursor = ""
 
 vim.opt.hlsearch = false
