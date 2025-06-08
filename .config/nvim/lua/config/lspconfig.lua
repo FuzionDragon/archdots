@@ -20,6 +20,7 @@ local servers = {
   marksman = {},
   jdtls = {},
   jsonls = {},
+  bash_ls = {},
 }
 
 return {

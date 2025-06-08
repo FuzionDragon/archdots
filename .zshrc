@@ -52,13 +52,19 @@ setopt hist_save_no_dups
 bindkey -e '^K' history-search-backward
 bindkey -e '^J' history-search-forward
 bindkey -e -s '^F' '. ~/scripts/find_repos.sh^M clear^M' 
-bindkey -e -s '^O' '~/scripts/search_system.sh^M'
 
 # Alias'
 alias v="nvim"
 alias vf="fd --type=d --hidden --strip-cwd-prefix --exclude .git && v ."
 alias t="tmux"
-alias ta="tmux a"
+alias z="zathura"
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit -m"
+alias gm="git merge"
+alias gf="git fetch"
+alias gph="git push"
+alias gpl="git pull"
 alias fetch="fastfetch"
 alias hyprconf="v ~/.config/hypr/hyprland.conf"
 alias nvimconf="v ~/.config/nvim/init.lua"
@@ -106,3 +112,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export PATH="$PATH:/home/davidl/.local/bin"
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
