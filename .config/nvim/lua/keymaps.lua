@@ -49,6 +49,8 @@ vim.keymap.set('n', '<leader>sf', fzf.files)
 vim.keymap.set('n', '<leader>sg', fzf.git_files)
 vim.keymap.set('n', '<leader>sh', fzf.live_grep)
 vim.keymap.set('n', '<leader>sq', fzf.quickfix)
+vim.keymap.set('n', '<leader>xx', fzf.lsp_document_diagnostics)
+vim.keymap.set('n', '<leader>xX', fzf.lsp_workspace_diagnostics)
 
 -- Harpoon
 vim.keymap.set('n', '<C-e>', ui.toggle_quick_menu)

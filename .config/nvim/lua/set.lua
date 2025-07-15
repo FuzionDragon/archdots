@@ -35,3 +35,30 @@ vim.opt.foldtext = ""
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 1
 vim.opt.foldnestmax = 4
+
+vim.diagnostic.config({
+  float = {
+    header = "",
+    focusable = false,
+    border = "rounded",
+    close_events = {
+      "BufLeave",
+      "CursorMoved",
+      "InsertEnter",
+      "FocusLost",
+    },
+    prefix = "",
+    suffix = "",
+    format = function(diagnostic)
+      if diagnostic.source == 'rustc'
+        and diagnostic.user_data.lsp.data ~= nil
+      then
+        return diagnostic.user_data.lsp.data.rendered
+      else
+        return diagnostic.message
+      end
+    end,
+},
+  virtual_text = false,
+  update_in_insert = true,
+})

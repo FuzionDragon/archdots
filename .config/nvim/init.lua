@@ -1,5 +1,15 @@
 require("set")
 vim.g.mapleader = " "
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function()
+    local mode = vim.api.nvim_get_mode().mode
+    local filetype = vim.bo.filetype
+    if vim.bo.modified == true and mode == 'n' and filetype ~= "oil" then
+      vim.cmd('lua vim.lsp.buf.format()')
+    else
+    end
+  end
+})
 
 -- Lazy.nvim Bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -24,10 +34,10 @@ require("config.render-markdown")
 require("ibl").setup()
 require('guess-indent').setup {}
 require("colorizer").setup {
-  'css';
-  'javascript';
-  'typescript';
+  'css',
+  'javascript',
+  'typescript',
   html = {
-    mode = 'foreground';
+    mode = 'foreground',
   }
 }

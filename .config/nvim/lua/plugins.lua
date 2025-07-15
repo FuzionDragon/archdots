@@ -1,25 +1,28 @@
 local lspconfig = require('config.lspconfig')
-local diagnostics = require('config.diagnostics')
 local lualine = require('config.lualine')
 local fzf = require('config.fzf')
-local obsidian = require('config.obsidian')
 --local colorizer = require('config.colorizer')
 
 return {
-	'EdenEast/nightfox.nvim',
+  'EdenEast/nightfox.nvim',
   'williamboman/mason.nvim',
-  'nvim-lua/plenary.nvim',
-	{
-		'nvim-treesitter/nvim-treesitter',
-		dependencies = {
-			'nvim-treesitter/nvim-treesitter-textobjects',
-		},
-		build = ':TSUpdate',
-	},
-	'theprimeagen/harpoon',
-	'mbbill/undotree',
-	'tpope/vim-fugitive',
-	'L3MON4D3/LuaSnip',
+  {
+    'nvim-lua/plenary.nvim',
+    ft = "lua",
+  },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    build = ':TSUpdate',
+  },
+  'theprimeagen/harpoon',
+  {
+    'mbbill/undotree',
+    lazy = true,
+  },
+  'L3MON4D3/LuaSnip',
   {
     'm4xshen/autoclose.nvim',
     opts = {
@@ -31,15 +34,15 @@ return {
   },
   {
     'karb94/neoscroll.nvim',
-    mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
-                '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+    mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
+      '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
     hide_cursor = true,          -- Hide cursor while scrolling
     stop_eof = true,             -- Stop at <EOF> when scrolling downwards
     respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
     cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
     easing_function = nil,       -- Default easing function
-    pre_hook = true,              -- Function to run before the scrolling animation starts
-    post_hook = true,             -- Function to run after the scrolling animation ends
+    pre_hook = true,             -- Function to run before the scrolling animation starts
+    post_hook = true,            -- Function to run after the scrolling animation ends
     performance_mode = false,    -- Disable "Performance Mode" on all buffers.
   },
   {
@@ -49,16 +52,6 @@ return {
         'echasnovski/mini.icons',
         opts = {},
       },
-    },
-  },
-  {
-    "S1M0N38/love2d.nvim",
-    cmd = "LoveRun",
-    opts = { },
-    keys = {
-      { "<leader>v", ft = "lua", desc = "LÖVE" },
-      { "<leader>vv", "<cmd>LoveRun<cr>", ft = "lua", desc = "Run LÖVE" },
-      { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua", desc = "Stop LÖVE" },
     },
   },
   {
@@ -75,6 +68,7 @@ return {
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
+    ft = "markdown",
   },
   {
     'kylechui/nvim-surround',
@@ -86,18 +80,15 @@ return {
       })
     end
   },
-  'norcalli/nvim-colorizer.lua',
+  lspconfig,
   {
     'mrcjkb/rustaceanvim',
-    version = '^5', -- Recommended
-    lazy = false, -- This plugin is already lazy
+    version = '^6',
+    lazy = false,
   },
-  'nvim-treesitter/playground',
+  'norcalli/nvim-colorizer.lua',
   'numToStr/FTerm.nvim',
-  lspconfig,
-  diagnostics,
   lualine,
   fzf,
-  obsidian,
---  colorizer,
+  --  colorizer,
 }

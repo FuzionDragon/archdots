@@ -1,5 +1,5 @@
 local servers = {
-	lua_ls = {
+  lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
@@ -8,12 +8,12 @@ local servers = {
       }
     },
   },
-	eslint = {},
-	rust_analyzer = {},
-	ts_ls= {},
-	pyright = {},
-	html = { filetypes = { 'html', 'twig', 'hbs' } },
-	gopls = {},
+  eslint = {},
+  rust_analyzer = {},
+  ts_ls = {},
+  pyright = {},
+  html = { filetypes = { 'html', 'twig', 'hbs' } },
+  gopls = {},
   clangd = {
 
   },
@@ -21,7 +21,11 @@ local servers = {
   jdtls = {},
   jsonls = {},
   bash_ls = {},
+  slint_lsp = {},
 }
+
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('ts_ls')
 
 return {
   {
@@ -70,6 +74,7 @@ return {
         },
       },
     },
+    event = "VeryLazy",
   },
   {
     'neovim/nvim-lspconfig',
@@ -98,19 +103,19 @@ return {
     },
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities()
-      require('lspconfig').lua_ls.setup {
+      vim.lsp.config('lua_ls', {
         capabilities = capabilities,
         filetypes = { "lua" },
-      }
-      require('lspconfig').ts_ls.setup { capabilities = capabilities }
-      require('lspconfig').pyright.setup {
+      })
+      vim.lsp.config('pyright', {
         capabilities = capabilities,
         filetypes = { "python" },
-      }
-      require('lspconfig').marksman.setup { capabilities = capabilities }
-      require('lspconfig').jsonls.setup { capabilities = capabilities }
-      require('lspconfig').jdtls.setup { capabilities = capabilities }
-      require('lspconfig').clangd.setup { capabilities = capabilities }
+      })
+      vim.lsp.config('marksman', { capabilities = capabilities })
+      vim.lsp.config('jsonls', { capabilities = capabilities })
+      vim.lsp.config('clangd', { capabilities = capabilities })
+      vim.lsp.config('slint_lsp', { capabilities = capabilities })
+      vim.lsp.config('ts_ls', { capabilities = capabilities })
     end,
   },
 }
