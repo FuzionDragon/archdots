@@ -15,6 +15,11 @@ fi
 # Add Cargo binary to PATH
 PATH=$PATH:~/.cargo/bin
 
+# Android studion env
+export JAVA_HOME=/opt/android-studio/jbr
+export ANDROID_HOME="$HOME/Android/Sdk"
+export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
+
 # Man export to Neovim
 export MANPAGER="nvim +Man!"
 
@@ -56,8 +61,7 @@ bindkey -e -s '^F' '. ~/scripts/find_repos.sh^M clear^M'
 # Alias'
 alias v="nvim"
 alias vf="fd --type=d --hidden --strip-cwd-prefix --exclude .git && v ."
-alias t="tmux"
-alias z="zathura"
+alias za="zathura"
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"
@@ -69,7 +73,6 @@ alias gpl="git pull"
 alias fetch="fastfetch"
 alias hyprconf="v ~/.config/hypr/hyprland.conf"
 alias nvimconf="v ~/.config/nvim/init.lua"
-alias code="codium"
 alias bc="cd ../"
 alias bcc="cd ../../"
 alias m="man"
@@ -105,13 +108,9 @@ export FZF_TMUX_OPTS=" -p90%,70% "
 # Oh-my-posh Prompt Setup
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.toml)"
 
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# Created by `pipx` on 2024-11-06 16:03:58
-export PATH="$PATH:/home/davidl/.local/bin"
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
-
-export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1

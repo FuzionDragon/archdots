@@ -6,6 +6,9 @@ local fzf = require('config.fzf')
 return {
   'EdenEast/nightfox.nvim',
   'williamboman/mason.nvim',
+  'nmac427/guess-indent.nvim',
+  'theprimeagen/harpoon',
+  'L3MON4D3/LuaSnip',
   {
     'nvim-lua/plenary.nvim',
     ft = "lua",
@@ -17,12 +20,10 @@ return {
     },
     build = ':TSUpdate',
   },
-  'theprimeagen/harpoon',
   {
     'mbbill/undotree',
     lazy = true,
   },
-  'L3MON4D3/LuaSnip',
   {
     'm4xshen/autoclose.nvim',
     opts = {
@@ -61,7 +62,6 @@ return {
     ---@type ibl.config
     opts = {},
   },
-  'nmac427/guess-indent.nvim',
   {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
@@ -80,15 +80,41 @@ return {
       })
     end
   },
-  lspconfig,
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+    -- stylua: ignore
+    keys = {
+      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+    },
+  },
   {
     'mrcjkb/rustaceanvim',
     version = '^6',
     lazy = false,
   },
+  -- using lazy.nvim
+  {
+    "S1M0N38/love2d.nvim",
+    event = "VeryLazy",
+    version = "2.*",
+    opts = {},
+    keys = {
+      { "<leader>v",  ft = "lua",          desc = "LÖVE" },
+      { "<leader>vv", "<cmd>LoveRun<cr>",  ft = "lua",   desc = "Run LÖVE" },
+      { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua",   desc = "Stop LÖVE" },
+    },
+  },
   'norcalli/nvim-colorizer.lua',
   'numToStr/FTerm.nvim',
   lualine,
   fzf,
+  lspconfig,
   --  colorizer,
 }

@@ -185,19 +185,8 @@ Then run the command
 $ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-### Quickemu
+### Kanata
 
-There is a Hyprland binding for running a Windows 10 vm.
+To apply my Kanata bindings, make sure it is enabled as a systemd service.
 
-Of course this doesn't come preinstalled on Arch so this needs to be installed.
-
-```
-$ cd ~
-$ quickget windows 10
-```
-
-If there isn't a need for this binding you can remove the binding in the Hyprland bindings config
-
-```
-$ nvim ~/.config/hypr/bindings.conf
-```
+If you wish to have it be globally available copy the config file from .config to /etc/kanata/config.kbd

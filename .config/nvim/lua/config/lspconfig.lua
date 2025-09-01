@@ -22,10 +22,13 @@ local servers = {
   jsonls = {},
   bash_ls = {},
   slint_lsp = {},
+  gdscript = {},
 }
 
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('ts_ls')
+vim.lsp.enable('pyright')
+vim.lsp.enable('gdscript')
 
 return {
   {
@@ -116,6 +119,7 @@ return {
       vim.lsp.config('clangd', { capabilities = capabilities })
       vim.lsp.config('slint_lsp', { capabilities = capabilities })
       vim.lsp.config('ts_ls', { capabilities = capabilities })
+      vim.lsp.config('gdscript', { capabilities = capabilities })
     end,
   },
 }
