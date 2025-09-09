@@ -187,6 +187,6 @@ $ grub-mkconfig -o /boot/grub/grub.cfg
 
 ### Kanata
 
-To apply my Kanata bindings, make sure it is enabled as a systemd service.
+To apply my Kanata bindings, make sure it is enabled as a systemd service, **[discussion to how found here](https://github.com/jtroo/kanata/discussions/130)**.
 
 If you wish to have it be globally available copy the config file from .config to /etc/kanata/config.kbd
