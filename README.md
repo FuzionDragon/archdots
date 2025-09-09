@@ -34,6 +34,7 @@ Ensure you have the following on your system
 pacman -S --needed base-devel git
 ```
 
+j
 ### Stow
 
 ```
@@ -63,6 +64,8 @@ $ cd archdots
 ```
 
 ### Use GNU stow to create symlinks
+
+**Make sure your ~/.config directory is properly setup or else unpredictable results may happen (trust me, it was a pain when I found out the issue)**
 
 ```
 $ stow .
