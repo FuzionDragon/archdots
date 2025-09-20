@@ -8,7 +8,7 @@ mpd_port = 6600
 
 ## Needed for tag editor and file operations to work.
 
-mpd_music_dir = ~/Music/Tunes/All
+mpd_music_dir = ~/Music
 
 ##### music visualizer #####
 ##
