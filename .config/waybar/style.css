@@ -81,7 +81,7 @@ button {
 }
 
 #workspaces button.focused {
-  color: @color4;
+  color: @color7;
 }
 
 #workspaces button.urgent {
