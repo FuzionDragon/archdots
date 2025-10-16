@@ -5,7 +5,7 @@ local fzf = require('config.fzf')
 
 return {
   'EdenEast/nightfox.nvim',
-  'williamboman/mason.nvim',
+  { 'williamboman/mason.nvim', version = "^1.0.0" },
   'nmac427/guess-indent.nvim',
   'theprimeagen/harpoon',
   'L3MON4D3/LuaSnip',
