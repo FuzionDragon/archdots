@@ -122,8 +122,8 @@ $ git clone https://aur.archlinux.org/paru.git
 $ cd paru
 $ makepkg -si
 ```
-
 ### Install Packages using pkglist in the archdots repo 
+
 
 For faster package downloads
 
@@ -136,17 +136,20 @@ Install the essential packages
 
 ```
 $ cd $HOME/archdots
-$ paru -S --needed - < pkglist.txt
+$ paru -S --needed - < .pkglist.txt
 ```
 
-To install the option packages
+To install the AUR packages
+
+**Reminder to self, AUR packages must be enabled in pacman config**
 
 ```
 $ cd $HOME/archdots
-$ paru -S --needed - < optional_pkglist.txt
+$ paru -S --needed - < .aurpkglist.txt
 ```
 
 **Note: These pkglist files don't have Intel and Nvidia cpu and gpu drivers, so they will need to be installed seperately if needed**
+
 
 ### TLP
 
@@ -193,3 +196,4 @@ $ grub-mkconfig -o /boot/grub/grub.cfg
 To apply my Kanata bindings, make sure it is enabled as a systemd service, **[discussion to how found here](https://github.com/jtroo/kanata/discussions/130)**.
 
 If you wish to have it be globally available copy the config file from .config to /etc/kanata/config.kbd
+

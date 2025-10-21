@@ -56,7 +56,7 @@ setopt hist_save_no_dups
 # Binds
 bindkey -e '^K' history-search-backward
 bindkey -e '^J' history-search-forward
-bindkey -e -s '^F' '. ~/scripts/find_repos.sh^M clear^M' 
+bindkey -e -s '^F' '. ~/.scripts/find_repos.sh^M clear^M' 
 
 # Alias'
 alias v="nvim"
@@ -77,16 +77,13 @@ alias bc="cd ../"
 alias bcc="cd ../../"
 alias m="man"
 alias fm="compgen -c | fzf | xargs man"
-alias vfzf="~/scripts/vfzf.sh"
-alias vcfg="~/scripts/vfzf.sh ~/.config"
-alias vdot="~/scripts/vfzf.sh ~/dotfiles"
-alias vdev="~/scripts/vfzf.sh ~/dev"
 alias ls="eza --grid --color=always --icons=always"
 alias l="eza --long --color=always --icons=always --no-user -a"
 alias icat="kitty +kitten icat"
 alias unmount="sudo umount /mnt/External"
-alias acat="~/scripts/rendercwd.sh"
+alias acat="~/.scripts/rendercwd.sh"
 alias cat="bat"
+alias rbackup="sudo rsync -aAXpvr --exclude={'/tmp/*','/storage/*','/proc/*','/boot/*','/dev/*','/run/*','/sys/*','/mnt/*'} / /mnt/External/backup"
 
 NO_STRIP=true
 

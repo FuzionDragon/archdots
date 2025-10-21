@@ -1,0 +1,11 @@
+android-studio
+devdocs-desktop
+downgrade
+kanata-bin
+librewolf-bin
+nordzy-cursors
+nordzy-hyprcursors
+oh-my-posh-bin
+paru
+paru-debug
+wdisplays
