@@ -10,7 +10,6 @@ These include my configs for:
 - Rofi
 - Pywal
 - Mako
-- Ncmpcpp
 - Zsh
 - Kitty
 - Fastfetch
@@ -34,7 +33,6 @@ Ensure you have the following on your system
 pacman -S --needed base-devel git
 ```
 
-j
 ### Stow
 
 ```
