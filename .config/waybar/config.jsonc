@@ -78,7 +78,7 @@
       "car": "",
       "default": ["", "", ""]
     },
-    "on-click": "kitty pulsemixer"
+    "on-click": "kitty alsamixer"
   },
   "mpris": {
   "format": "{player_icon} {title}: {artist}",

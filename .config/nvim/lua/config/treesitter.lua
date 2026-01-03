@@ -1,6 +1,6 @@
 ---@diagnostic disable-next-line: missing-fields
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "rust", "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+require 'nvim-treesitter.configs'.setup {
+  ensure_installed = { "rust", "c", "lua", "vim", "query", "markdown", "markdown_inline" },
 
   sync_install = false,
 

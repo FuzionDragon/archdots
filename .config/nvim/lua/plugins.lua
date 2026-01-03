@@ -111,6 +111,21 @@ return {
       { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua",   desc = "Stop LÖVE" },
     },
   },
+  {
+    "lervag/vimtex",
+    lazy = false, -- we don't want to lazy load VimTeX
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    init = function()
+      -- VimTeX configuration goes here, e.g.
+      vim.g.vimtex_view_method = "zathura"
+      vim.g.vimtex_quickfix_mode = 0
+      vim.g.vimtex_view_forward_search_on_start = false
+      --      vim.g.vimtex_compiler_latexmk = {
+      --        aux_dir = "/home/davidl/Documents/texfiles/",
+      --        out_dir = "/home/davidl/Documents/texfiles/",
+      --      }
+    end
+  },
   'norcalli/nvim-colorizer.lua',
   'numToStr/FTerm.nvim',
   lualine,

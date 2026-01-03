@@ -23,12 +23,14 @@ local servers = {
   bash_ls = {},
   slint_lsp = {},
   gdscript = {},
+  textlab = {},
 }
 
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('pyright')
 vim.lsp.enable('gdscript')
+vim.lsp.enable('textlab')
 
 return {
   {
@@ -120,6 +122,7 @@ return {
       vim.lsp.config('slint_lsp', { capabilities = capabilities })
       vim.lsp.config('ts_ls', { capabilities = capabilities })
       vim.lsp.config('gdscript', { capabilities = capabilities })
+      vim.lsp.config('textlab', { capabilities = capabilities })
     end,
   },
 }
