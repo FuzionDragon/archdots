@@ -120,10 +120,17 @@ return {
       vim.g.vimtex_view_method = "zathura"
       vim.g.vimtex_quickfix_mode = 0
       vim.g.vimtex_view_forward_search_on_start = false
-      --      vim.g.vimtex_compiler_latexmk = {
-      --        aux_dir = "/home/davidl/Documents/texfiles/",
-      --        out_dir = "/home/davidl/Documents/texfiles/",
-      --      }
+      vim.g.vimtex_compiler_latexmk = {
+        aux_dir = "/home/davidl/Documents/texfiles/",
+        out_dir = "/home/davidl/Documents/texfiles/",
+        options = {
+          "-verbose",
+          "-file-line-error",
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-bibtex",
+        }
+      }
     end
   },
   'norcalli/nvim-colorizer.lua',
