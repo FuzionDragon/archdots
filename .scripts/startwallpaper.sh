@@ -2,7 +2,7 @@
 dir=~/Wallpapers/$1
 mako=~/scripts/update-theme.sh
 
-uwsm app -- swww-daemon
-swww img $dir --transition-type random
+uwsm app -- awww-daemon
+awww img $dir --transition-type random
 uwsm app -- waybar
 $mako

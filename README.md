@@ -8,7 +8,6 @@ These include my configs for:
 - Waybar
 - Neovim
 - Rofi
-- Pywal
 - Mako
 - Zsh
 - Kitty

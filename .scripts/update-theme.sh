@@ -3,7 +3,7 @@
 . "${HOME}/.cache/wal/colors.sh"
 
 conffile="${HOME}/.config/mako/config"
-wallpaper="$(swww query | awk '{print $8}')"
+wallpaper="$(awww query | awk '{print $8}')"
 
 # Associative array, color name -> color code.
 declare -A colors
