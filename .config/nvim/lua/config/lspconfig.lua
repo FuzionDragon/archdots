@@ -24,6 +24,15 @@ local servers = {
   slint_lsp = {},
   gdscript = {},
   textlab = {},
+  ltex = {},
+  harper_ls = {
+    filetypes = { 'markdown', 'tex', 'latex' },
+    settings = {
+      ["harper-ls"] = {
+        userDictPath = "~/.config/nvim/spell/en.utf-8.add",
+      }
+    }
+  },
 }
 
 vim.lsp.enable('lua_ls')
@@ -31,6 +40,10 @@ vim.lsp.enable('ts_ls')
 vim.lsp.enable('pyright')
 vim.lsp.enable('gdscript')
 vim.lsp.enable('textlab')
+vim.lsp.enable('ltex-ls')
+vim.lsp.enable('harper-ls')
+vim.lsp.enable('jsonls')
+vim.lsp.enable('html-ls')
 
 return {
   {
@@ -116,6 +129,15 @@ return {
         capabilities = capabilities,
         filetypes = { "python" },
       })
+      vim.lsp.config('harper_ls', {
+        capabilities = capabilities,
+        filetypes = { 'markdown', 'tex', 'latex' },
+        settings = {
+          ["harper-ls"] = {
+            userDictPath = "~/.config/nvim/spell/en.utf-8.add",
+          }
+        }
+      })
       vim.lsp.config('marksman', { capabilities = capabilities })
       vim.lsp.config('jsonls', { capabilities = capabilities })
       vim.lsp.config('clangd', { capabilities = capabilities })
@@ -123,6 +145,7 @@ return {
       vim.lsp.config('ts_ls', { capabilities = capabilities })
       vim.lsp.config('gdscript', { capabilities = capabilities })
       vim.lsp.config('textlab', { capabilities = capabilities })
+      vim.lsp.config('html-ls', { capabilities = capabilities })
     end,
   },
 }

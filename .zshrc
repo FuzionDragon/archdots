@@ -8,7 +8,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 export WSM_USE_SESSION_SLICE=true
 # Uswm startup
-if uwsm check may-start && uwsm select; then
+if uwsm check may-start -q && uwsm select; then
 	exec systemd-cat -t uwsm_start uwsm start default
 fi
 
@@ -41,6 +41,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+autoload zmv
 
 # History
 HISTSIZE=1000
@@ -56,7 +57,14 @@ setopt hist_save_no_dups
 # Binds
 bindkey -e '^K' history-search-backward
 bindkey -e '^J' history-search-forward
+bindkey -e ' ' magic-space
 bindkey -e -s '^F' '. ~/.scripts/find_repos.sh^M clear^M' 
+bindkey -e -s '^U' 'git commit -m ""\C-b'
+
+# Edit Command Line binding
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -e '^E' edit-command-line
 
 # Alias'
 alias v="nvim"
