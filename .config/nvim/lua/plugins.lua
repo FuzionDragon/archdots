@@ -99,18 +99,6 @@ return {
     version = '^6',
     lazy = false,
   },
-  -- using lazy.nvim
-  {
-    "S1M0N38/love2d.nvim",
-    event = "VeryLazy",
-    version = "2.*",
-    opts = {},
-    keys = {
-      { "<leader>v",  ft = "lua",          desc = "LÖVE" },
-      { "<leader>vv", "<cmd>LoveRun<cr>",  ft = "lua",   desc = "Run LÖVE" },
-      { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua",   desc = "Stop LÖVE" },
-    },
-  },
   {
     "lervag/vimtex",
     lazy = false, -- we don't want to lazy load VimTeX
@@ -149,10 +137,21 @@ return {
       vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
     end,
   },
-  'norcalli/nvim-colorizer.lua',
+  {
+    "michaelrommel/nvim-silicon",
+    lazy = true,
+    cmd = "Silicon",
+    main = "nvim-silicon",
+    opts = {
+      output = "~/Pictures/Screenshots/code.png",
+      no_window_controls = true,
+      tab_width = 4,
+      pad_horiz = 10,
+      pad_vert = 10,
+    }
+  },
   'numToStr/FTerm.nvim',
   lualine,
   fzf,
   lspconfig,
-  --  colorizer,
 }

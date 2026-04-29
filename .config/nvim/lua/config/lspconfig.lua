@@ -20,7 +20,7 @@ local servers = {
   marksman = {},
   jdtls = {},
   jsonls = {},
-  bash_ls = {},
+  bash_language_server = {},
   slint_lsp = {},
   gdscript = {},
   textlab = {},
@@ -44,6 +44,7 @@ vim.lsp.enable('ltex-ls')
 vim.lsp.enable('harper-ls')
 vim.lsp.enable('jsonls')
 vim.lsp.enable('html-ls')
+vim.lsp.enable('bash-language-server')
 
 return {
   {
@@ -146,6 +147,7 @@ return {
       vim.lsp.config('gdscript', { capabilities = capabilities })
       vim.lsp.config('textlab', { capabilities = capabilities })
       vim.lsp.config('html-ls', { capabilities = capabilities })
+      vim.lsp.config('bash-language-server', { capabilities = capabilities })
     end,
   },
 }

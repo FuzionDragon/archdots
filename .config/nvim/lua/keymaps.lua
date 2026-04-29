@@ -7,7 +7,7 @@ vim.keymap.set("n", "<leader>pv", ":Oil<CR>")
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<leader><leader>", ":so<CR>")
 
--- Moving Visual Select  
+-- Moving Visual Select
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv'")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv'")
 
@@ -62,7 +62,7 @@ vim.keymap.set('n', '<C-l>', function() ui.nav_next() end)
 
 -- Fterm
 vim.api.nvim_create_user_command('CargoRun', function()
-    require('FTerm').run({'cargo', 'run'})
+  require('FTerm').run({ 'cargo', 'run' })
 end, { bang = true })
 
 vim.keymap.set('n', '<C-Space>', '<CMD>lua require("FTerm").toggle()<CR>')
