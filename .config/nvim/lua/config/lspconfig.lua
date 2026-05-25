@@ -1,153 +1,65 @@
-local servers = {
-  lua_ls = {
+require("mason").setup()
+require("mason-lspconfig").setup()
+require("mason-tool-installer").setup({
+  ensure_installed = {
+    "lua_ls",
+    "stylua",
+    "rust_analyzer",
+  },
+})
+
+vim.lsp.config("lua_ls", {
+  settings = {
     Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
+      runtime = {
+        version = "LuaJIT",
+      },
       diagnostics = {
-        disable = { "lowercase-global" }
-      }
-    },
-  },
-  eslint = {},
-  rust_analyzer = {},
-  ts_ls = {},
-  pyright = {},
-  html = { filetypes = { 'html', 'twig', 'hbs' } },
-  gopls = {},
-  clangd = {
-
-  },
-  marksman = {},
-  jdtls = {},
-  jsonls = {},
-  bash_language_server = {},
-  slint_lsp = {},
-  gdscript = {},
-  textlab = {},
-  ltex = {},
-  harper_ls = {
-    filetypes = { 'markdown', 'tex', 'latex' },
-    settings = {
-      ["harper-ls"] = {
-        userDictPath = "~/.config/nvim/spell/en.utf-8.add",
-      }
-    }
-  },
-}
-
-vim.lsp.enable('lua_ls')
-vim.lsp.enable('ts_ls')
-vim.lsp.enable('pyright')
-vim.lsp.enable('gdscript')
-vim.lsp.enable('textlab')
-vim.lsp.enable('ltex-ls')
-vim.lsp.enable('harper-ls')
-vim.lsp.enable('jsonls')
-vim.lsp.enable('html-ls')
-vim.lsp.enable('bash-language-server')
-
-return {
-  {
-    "folke/lazydev.nvim",
-    ft = "lua", -- only load on lua files
-    opts = {
-      library = {
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-      },
-    },
-  },
-  {
-    "saghen/blink.cmp",
-    dependencies = 'rafamadriz/friendly-snippets',
-    version = '*',
-    opts = {
-      keymap = {
-        preset = 'none',
-        ['<C-g>'] = { 'show', 'show_documentation', 'hide_documentation' },
-        ['<C-e>'] = { 'hide' },
-        ['<C-y>'] = { 'select_and_accept' },
-
-        ['<C-p>'] = { 'select_prev', 'fallback' },
-        ['<C-n>'] = { 'select_next', 'fallback' },
-
-        ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
-        ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
-      },
-      appearance = {
-        use_nvim_cmp_as_default = true,
-        nerd_font_variant = 'mono',
-      },
-      sources = {
-        default = { "lazydev", "lsp", "path", "snippets", "buffer", "markdown" },
-        providers = {
-          markdown = {
-            name = 'RenderMarkdown',
-            module = 'render-markdown.integ.blink',
-            fallbacks = { 'lsp' },
-          },
-          lazydev = {
-            name = "LazyDev",
-            module = "lazydev.integrations.blink",
-            score_offset = 100,
-          },
+        globals = {
+          "vim",
+          "require",
         },
       },
-    },
-    event = "VeryLazy",
-  },
-  {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      'saghen/blink.cmp',
-      {
-        "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
-        opts = {
-          servers = servers,
-          library = {
-            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-          },
-        },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
       },
-      {
-        'williamboman/mason.nvim',
-        config = true,
-        ensure_installed = {
-          "lua_ls",
-          "rust_analyzer",
-          "pyright",
-        }
+      telemetry = {
+        enable = false,
       },
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
     },
-    config = function()
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
-      vim.lsp.config('lua_ls', {
-        capabilities = capabilities,
-        filetypes = { "lua" },
-      })
-      vim.lsp.config('pyright', {
-        capabilities = capabilities,
-        filetypes = { "python" },
-      })
-      vim.lsp.config('harper_ls', {
-        capabilities = capabilities,
-        filetypes = { 'markdown', 'tex', 'latex' },
-        settings = {
-          ["harper-ls"] = {
-            userDictPath = "~/.config/nvim/spell/en.utf-8.add",
-          }
-        }
-      })
-      vim.lsp.config('marksman', { capabilities = capabilities })
-      vim.lsp.config('jsonls', { capabilities = capabilities })
-      vim.lsp.config('clangd', { capabilities = capabilities })
-      vim.lsp.config('slint_lsp', { capabilities = capabilities })
-      vim.lsp.config('ts_ls', { capabilities = capabilities })
-      vim.lsp.config('gdscript', { capabilities = capabilities })
-      vim.lsp.config('textlab', { capabilities = capabilities })
-      vim.lsp.config('html-ls', { capabilities = capabilities })
-      vim.lsp.config('bash-language-server', { capabilities = capabilities })
-    end,
   },
-}
+})
+vim.lsp.config("pyright", {
+  filetypes = { "python" },
+})
+vim.lsp.config("harper_ls", {
+  filetypes = { "markdown", "tex" },
+  settings = {
+    ["harper-ls"] = {
+      userDictPath = "~/.config/nvim/spell/en.utf-8.add",
+    },
+  },
+})
+
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("pyright")
+vim.lsp.enable("gdscript")
+vim.lsp.enable("textlab")
+vim.lsp.enable("ltex-ls")
+vim.lsp.enable("harper-ls")
+vim.lsp.enable("jsonls")
+vim.lsp.enable("html-ls")
+vim.lsp.enable("bash-language-server")
+vim.lsp.enable("rust_analyzer")
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+    if client:supports_method("textDocument/completion") then
+      vim.lsp.completion.enable(true, client.id, args.buf, {
+        autotrigger = true,
+      })
+    end
+  end,
+})

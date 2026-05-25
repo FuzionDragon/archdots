@@ -1,87 +1,84 @@
-local lspconfig = require('config.lspconfig')
-local lualine = require('config.lualine')
-local fzf = require('config.fzf')
+local lualine = require("config.lualine")
+local fzf = require("config.fzf")
 --local colorizer = require('config.colorizer')
 
+local gh = function(x)
+  return "https://github.com/" .. x
+end
+local cb = function(x)
+  return "https://codeberg.org/" .. x
+end
+
 return {
-  'EdenEast/nightfox.nvim',
-  { 'williamboman/mason.nvim', version = "^1.0.0" },
-  'nmac427/guess-indent.nvim',
-  'theprimeagen/harpoon',
-  'L3MON4D3/LuaSnip',
+  gh("EdenEast/nightfox.nvim"),
+  gh("neovim/nvim-lspconfig"),
+  gh("mason-org/mason.nvim"),
+  gh("mason-org/mason-lspconfig.nvim"),
+  gh("WhoIsSethDaniel/mason-tool-installer.nvim"),
+  gh("rafamadriz/friendly-snippets"),
+  gh("nmac427/guess-indent.nvim"),
+  gh("theprimeagen/harpoon"),
+  gh("L3MON4D3/LuaSnip"),
   {
-    'nvim-lua/plenary.nvim',
+    src = gh("nvim-lua/plenary.nvim"),
     ft = "lua",
   },
   {
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    build = ':TSUpdate',
+    src = gh("nvim-treesitter/nvim-treesitter"),
+    version = "main",
+    build = ":TSUpdate",
   },
   {
-    'mbbill/undotree',
-    lazy = true,
-  },
-  {
-    'm4xshen/autoclose.nvim',
+    src = gh("m4xshen/autoclose.nvim"),
     opts = {
       options = {
         close = true,
         escape = true,
-      }
-    }
+      },
+    },
   },
   {
-    'karb94/neoscroll.nvim',
-    mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
-      '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
-    hide_cursor = true,          -- Hide cursor while scrolling
-    stop_eof = true,             -- Stop at <EOF> when scrolling downwards
-    respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+    src = gh("karb94/neoscroll.nvim"),
+    mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
+    hide_cursor = true, -- Hide cursor while scrolling
+    stop_eof = true, -- Stop at <EOF> when scrolling downwards
+    respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
     cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-    easing_function = nil,       -- Default easing function
-    pre_hook = true,             -- Function to run before the scrolling animation starts
-    post_hook = true,            -- Function to run after the scrolling animation ends
-    performance_mode = false,    -- Disable "Performance Mode" on all buffers.
+    easing_function = nil, -- Default easing function
+    pre_hook = true, -- Function to run before the scrolling animation starts
+    post_hook = true, -- Function to run after the scrolling animation ends
+    performance_mode = false, -- Disable "Performance Mode" on all buffers.
   },
   {
-    'stevearc/oil.nvim',
+    src = gh("stevearc/oil.nvim"),
     dependencies = {
       {
-        'echasnovski/mini.icons',
+        "echasnovski/mini.icons",
         opts = {},
       },
     },
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
+    src = gh("lukas-reineke/indent-blankline.nvim"),
     main = "ibl",
     ---@module "ibl"
     ---@type ibl.config
     opts = {},
   },
   {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    src = gh("MeanderingProgrammer/render-markdown.nvim"),
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- if you use standalone mini plugins
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
     ft = "markdown",
   },
   {
-    'kylechui/nvim-surround',
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    src = gh("kylechui/nvim-surround"),
     event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end
   },
   {
-    "folke/flash.nvim",
+    src = gh("folke/flash.nvim"),
     event = "VeryLazy",
     ---@type Flash.Config
     opts = {},
@@ -95,41 +92,19 @@ return {
     },
   },
   {
-    'mrcjkb/rustaceanvim',
-    version = '^6',
-    lazy = false,
-  },
-  {
-    "lervag/vimtex",
+    src = gh("lervag/vimtex"),
     lazy = false, -- we don't want to lazy load VimTeX
     -- tag = "v2.15", -- uncomment to pin to a specific release
-    init = function()
-      -- VimTeX configuration goes here, e.g.
-      vim.g.vimtex_view_method = "zathura"
-      vim.g.vimtex_quickfix_mode = 0
-      vim.g.vimtex_view_forward_search_on_start = false
-      vim.g.vimtex_compiler_latexmk = {
-        aux_dir = "/home/davidl/Documents/texfiles/",
-        out_dir = "/home/davidl/Documents/texfiles/",
-        options = {
-          "-verbose",
-          "-file-line-error",
-          "-synctex=1",
-          "-interaction=nonstopmode",
-          "-bibtex",
-        }
-      }
-    end
   },
   {
-    "3rd/image.nvim",
+    src = gh("3rd/image.nvim"),
     build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
     opts = {
       processor = "magick_cli",
-    }
+    },
   },
   {
-    "rachartier/tiny-inline-diagnostic.nvim",
+    src = gh("rachartier/tiny-inline-diagnostic.nvim"),
     event = "VeryLazy",
     priority = 1000,
     config = function()
@@ -138,7 +113,7 @@ return {
     end,
   },
   {
-    "michaelrommel/nvim-silicon",
+    src = gh("michaelrommel/nvim-silicon"),
     lazy = true,
     cmd = "Silicon",
     main = "nvim-silicon",
@@ -148,10 +123,10 @@ return {
       tab_width = 4,
       pad_horiz = 10,
       pad_vert = 10,
-    }
+    },
   },
-  'numToStr/FTerm.nvim',
+  { src = gh("j-hui/fidget.nvim"), tag = "legacy", opts = {} },
+  gh("numToStr/FTerm.nvim"),
   lualine,
   fzf,
-  lspconfig,
 }

@@ -1,6 +1,6 @@
-local fzf = require('fzf-lua')
-local mark = require('harpoon.mark')
-local ui = require('harpoon.ui')
+local fzf = require("fzf-lua")
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
 
 -- Neovim Maps
 vim.keymap.set("n", "<leader>pv", ":Oil<CR>")
@@ -27,16 +27,16 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Yank Visual Select to Clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
 
 -- Delete Visual Select to Clipboard
-vim.keymap.set("n", "<leader>d", "\"+d")
-vim.keymap.set("v", "<leader>d", "\"+d")
+vim.keymap.set("n", "<leader>d", '"+d')
+vim.keymap.set("v", "<leader>d", '"+d')
 
 -- Paste over a text while keeping copied text
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("x", "<leader>p", '"_dP')
 
 -- Edit all instances of selected word
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -45,38 +45,43 @@ vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 vim.keymap.set("n", "<leader>L", ":Lazy<CR>")
 
 -- Fzf-lua
-vim.keymap.set('n', '<leader>sf', fzf.files)
-vim.keymap.set('n', '<leader>sg', fzf.git_files)
-vim.keymap.set('n', '<leader>sh', fzf.live_grep)
-vim.keymap.set('n', '<leader>sq', fzf.quickfix)
-vim.keymap.set('n', '<leader>xx', fzf.lsp_document_diagnostics)
-vim.keymap.set('n', '<leader>xX', fzf.lsp_workspace_diagnostics)
+vim.keymap.set("n", "<leader>sf", fzf.files)
+vim.keymap.set("n", "<leader>sg", fzf.git_files)
+vim.keymap.set("n", "<leader>sh", fzf.live_grep)
+vim.keymap.set("n", "<leader>sq", fzf.quickfix)
+vim.keymap.set("n", "<leader>xx", fzf.lsp_document_diagnostics)
+vim.keymap.set("n", "<leader>xX", fzf.lsp_workspace_diagnostics)
 
 -- Harpoon
-vim.keymap.set('n', '<C-e>', ui.toggle_quick_menu)
-vim.keymap.set('n', '<leader>a', mark.add_file)
-vim.keymap.set('n', '<leader>e', mark.rm_file)
+vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+vim.keymap.set("n", "<leader>a", mark.add_file)
+vim.keymap.set("n", "<leader>e", mark.rm_file)
 
-vim.keymap.set('n', '<C-h>', function() ui.nav_prev() end)
-vim.keymap.set('n', '<C-l>', function() ui.nav_next() end)
+vim.keymap.set("n", "<C-h>", function()
+  ui.nav_prev()
+end)
+vim.keymap.set("n", "<C-l>", function()
+  ui.nav_next()
+end)
 
 -- Fterm
-vim.api.nvim_create_user_command('CargoRun', function()
-  require('FTerm').run({ 'cargo', 'run' })
+vim.api.nvim_create_user_command("CargoRun", function()
+  require("FTerm").run({ "cargo", "run" })
 end, { bang = true })
 
-vim.keymap.set('n', '<C-Space>', '<CMD>lua require("FTerm").toggle()<CR>')
-vim.keymap.set('t', '<C-Space>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
-vim.keymap.set('n', '<leader>bb', ":CargoRun<CR>")
+vim.keymap.set("n", "<C-Space>", '<CMD>lua require("FTerm").toggle()<CR>')
+vim.keymap.set("t", "<C-Space>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+vim.keymap.set("n", "<leader>bb", ":CargoRun<CR>")
 
 -- Undotree
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+vim.cmd("packadd nvim.undotree")
+vim.keymap.set("n", "<leader>u", vim.cmd.Undotree)
 
 -- Vim Fugitive
-vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
 -- Guess Indent
-vim.keymap.set('n', '<leader>gi', ':GuessIndent<CR>')
+vim.keymap.set("n", "<leader>gi", ":GuessIndent<CR>")
 
 -- Go to Definition or Declaration
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })

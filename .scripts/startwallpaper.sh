@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-dir=~/Wallpapers/$1
+dir=~/Pictures/Wallpapers/$1
 mako=~/scripts/update-theme.sh
 
 uwsm app -- awww-daemon

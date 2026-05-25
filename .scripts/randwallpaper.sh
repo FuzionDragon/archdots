@@ -1,6 +1,6 @@
 #!/usr/bin/bash
-wallpaper="$(ls ~/Wallpapers |sort -R |tail -1)"
-dir=~/Wallpapers/$wallpaper
+wallpaper="$(ls ~/Pictures/Wallpapers |sort -R |tail -1)"
+dir=~/Pictures/Wallpapers/$wallpaper
 waybar=~/scripts/refreshwaybar.sh
 mako=~/scripts/update-theme.sh
 

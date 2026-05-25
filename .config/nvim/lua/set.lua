@@ -8,6 +8,7 @@ vim.opt.expandtab = true
 vim.opt.cursorline = true
 
 vim.opt.smartindent = true
+--vim.opt.smarttab = true
 
 vim.opt.wrap = true
 
@@ -36,6 +37,25 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 1
 vim.opt.foldnestmax = 4
 
+vim.o.autocomplete = true
+vim.opt.completeopt = "menuone,fuzzy,popup,noinsert"
+vim.opt.complete:append("o")
+
+vim.g.vimtex_view_method = "zathura"
+vim.g.vimtex_quickfix_mode = 0
+vim.g.vimtex_view_forward_search_on_start = false
+vim.g.vimtex_compiler_latexmk = {
+  aux_dir = "/home/davidl/Documents/texfiles/",
+  out_dir = "/home/davidl/Documents/texfiles/",
+  options = {
+    "-verbose",
+    "-file-line-error",
+    "-synctex=1",
+    "-interaction=nonstopmode",
+    "-bibtex",
+  },
+}
+
 vim.diagnostic.config({
   float = {
     header = "",
@@ -50,15 +70,13 @@ vim.diagnostic.config({
     prefix = "",
     suffix = "",
     format = function(diagnostic)
-      if diagnostic.source == 'rustc'
-        and diagnostic.user_data.lsp.data ~= nil
-      then
+      if diagnostic.source == "rustc" and diagnostic.user_data.lsp.data ~= nil then
         return diagnostic.user_data.lsp.data.rendered
       else
         return diagnostic.message
       end
     end,
-},
+  },
   virtual_text = false,
   update_in_insert = true,
 })

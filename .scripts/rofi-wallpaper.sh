@@ -1,6 +1,6 @@
 #!/usr/bin/bash
-wallpaper=$(ls ~/Wallpapers | rofi -dmenu)
-dir=~/Wallpapers/$wallpaper
+wallpaper=$(ls ~/Pictures/Wallpapers | rofi -dmenu)
+dir=~/Pictures/Wallpapers/$wallpaper
 waybar=~/scripts/refreshwaybar.sh
 mako=~/scripts/update-theme.sh
 
