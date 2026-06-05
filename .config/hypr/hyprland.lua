@@ -86,6 +86,7 @@ hl.config({
 	input = input,
 	decoration = decoration,
 	cursor = cursor,
+	master = master,
 	misc = misc,
 	ecosystem = ecosystem,
 })

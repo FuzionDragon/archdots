@@ -1,6 +1,7 @@
 local fzf = require("fzf-lua")
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
+local flash = require("flash")
 
 -- Neovim Maps
 vim.keymap.set("n", "<leader>pv", ":Oil<CR>")
@@ -86,3 +87,20 @@ vim.keymap.set("n", "<leader>gi", ":GuessIndent<CR>")
 -- Go to Definition or Declaration
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+
+-- Flash
+vim.keymap.set({ "n", "x", "o" }, "s", function()
+  flash.jump()
+end)
+vim.keymap.set({ "n", "x", "o" }, "S", function()
+  flash.treesitter()
+end)
+vim.keymap.set("o", "r", function()
+  flash.remote()
+end)
+vim.keymap.set({ "x", "o" }, "R", function()
+  flash.treesitter_search()
+end)
+vim.keymap.set("c", "<c-s>", function()
+  flash.toggle()
+end)
