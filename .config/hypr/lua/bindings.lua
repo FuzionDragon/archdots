@@ -5,41 +5,41 @@ local SUPERCTRLSHIFT = "SUPER + CTRL + SHIFT + "
 local UWSM_PREFIX = "uwsm app -- "
 
 -- Application bindings
-hl.bind(SUPER .. "RETURN", UWSM_PREFIX .. "kitty")
-hl.bind(SUPER .. "W", UWSM_PREFIX .. "zen-browser")
-hl.bind(SUPER .. "T", UWSM_PREFIX .. "steam")
-hl.bind(SUPER .. "D", UWSM_PREFIX .. "wdisplays")
-hl.bind(SUPER .. "G", UWSM_PREFIX .. "godot")
-hl.bind(SUPER .. "Y", UWSM_PREFIX .. "~/Applications/Page_Writer.AppImage")
-hl.bind(SUPER .. "R", UWSM_PREFIX .. "kitty cmus")
-hl.bind(SUPER .. "B", UWSM_PREFIX .. "kitty btop")
-hl.bind(SUPER .. "P", UWSM_PREFIX .. "kitty alsamixer")
-hl.bind(SUPERCTRL .. "P", UWSM_PREFIX .. "kitty nmtui")
-hl.bind(SUPER .. "C", "cliphist list | rofi -dmenu | cliphist decode | wl-copy")
-hl.bind(SUPER .. "SPACE", "rofi -show drun -run-command 'uwsm app -- {cmd}'")
+hl.bind(SUPER .. "RETURN", hl.dsp.exec_cmd(UWSM_PREFIX .. "kitty"))
+hl.bind(SUPER .. "W", hl.dsp.exec_cmd(UWSM_PREFIX .. "zen-browser"))
+hl.bind(SUPER .. "T", hl.dsp.exec_cmd(UWSM_PREFIX .. "steam"))
+hl.bind(SUPER .. "D", hl.dsp.exec_cmd(UWSM_PREFIX .. "wdisplays"))
+hl.bind(SUPER .. "G", hl.dsp.exec_cmd(UWSM_PREFIX .. "godot"))
+hl.bind(SUPER .. "Y", hl.dsp.exec_cmd(UWSM_PREFIX .. "~/Applications/Page_Writer.AppImage"))
+hl.bind(SUPER .. "R", hl.dsp.exec_cmd(UWSM_PREFIX .. "kitty cmus"))
+hl.bind(SUPER .. "B", hl.dsp.exec_cmd(UWSM_PREFIX .. "kitty btop"))
+hl.bind(SUPER .. "P", hl.dsp.exec_cmd(UWSM_PREFIX .. "kitty alsamixer"))
+hl.bind(SUPERCTRL .. "P", hl.dsp.exec_cmd(UWSM_PREFIX .. "kitty nmtui"))
+hl.bind(SUPER .. "C", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
+hl.bind(SUPER .. "SPACE", hl.dsp.exec_cmd("rofi -show drun -run-command 'uwsm app -- {cmd}'"))
 
 -- Script bindings
-hl.bind(SUPERSHIFT .. "E", UWSM_PREFIX .. "~/.scripts/refreshwaybar.sh")
-hl.bind(SUPERSHIFT .. "S", "~/.scripts/grim_wl-copy.sh")
-hl.bind(SUPERCTRL .. "S", "~/.scripts/grim_fullscreen.sh")
-hl.bind(SUPERCTRLSHIFT .. "S", "~/.scripts/grim.sh")
-hl.bind(SUPERCTRL .. "DELETE", "~/.scripts/powermenu.sh")
+hl.bind(SUPERSHIFT .. "E", hl.dsp.exec_cmd(UWSM_PREFIX .. "~/.scripts/refreshwaybar.sh"))
+hl.bind(SUPERSHIFT .. "S", hl.dsp.exec_cmd("~/.scripts/grim_wl-copy.sh"))
+hl.bind(SUPERCTRL .. "S", hl.dsp.exec_cmd("~/.scripts/grim_fullscreen.sh"))
+hl.bind(SUPERCTRLSHIFT .. "S", hl.dsp.exec_cmd("~/.scripts/grim.sh"))
+hl.bind(SUPERCTRL .. "DELETE", hl.dsp.exec_cmd("~/.scripts/powermenu.sh"))
 
 -- Window bindings
 hl.bind(SUPER .. "Q", hl.dsp.window.kill(hl.get_active_window()))
 hl.bind(SUPER .. "F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 hl.bind(SUPERCTRL .. "Q", function()
-	hl.dsp.window.float({ action = "toggle" })
-	hl.dsp.window.center()
+	hl.window.float({ action = "toggle" })
+	hl.window.center()
 end)
-hl.bind(SUPERCTRL .. "TAB", hl.layout("swapwithmaster master"))
-hl.bind(SUPERCTRL .. "H", hl.layout("orientationnext"))
-hl.bind(SUPERCTRL .. "L", hl.layout("orentationprev"))
-hl.bind(SUPER .. "J", hl.layout("focusmaster"))
-hl.bind(SUPER .. "J", hl.layout("cyclenext"))
-hl.bind(SUPER .. "UP", hl.layout("cyclenext"))
-hl.bind(SUPER .. "K", hl.layout("cycleprev"))
-hl.bind(SUPER .. "DOWN", hl.layout("cycleprev"))
+hl.bind(SUPERCTRL .. "TAB", hl.dsp.layout("swapwithmaster master"))
+hl.bind(SUPERCTRL .. "H", hl.dsp.layout("orientationnext"))
+hl.bind(SUPERCTRL .. "L", hl.dsp.layout("orentationprev"))
+hl.bind(SUPER .. "Z", hl.dsp.layout("focusmaster"))
+hl.bind(SUPER .. "J", hl.dsp.layout("cyclenext"))
+hl.bind(SUPER .. "UP", hl.dsp.layout("cyclenext"))
+hl.bind(SUPER .. "K", hl.dsp.layout("cycleprev"))
+hl.bind(SUPER .. "DOWN", hl.dsp.layout("cycleprev"))
 
 -- System bindings
 hl.bind(SUPERCTRLSHIFT .. "M", hl.dsp.exit())
@@ -64,21 +64,22 @@ hl.bind(SUPERSHIFT .. "K", hl.dsp.exec_cmd("brightnessctl set 1%+"), { repeating
 
 -- Workspace bindings
 for i = 1, 10 do
-	hl.bind(SUPER .. i, hl.dsp.focus({ workspace = i }))
-	hl.bind(SUPERSHIFT .. i, hl.dsp.window.move({ workspace = i }))
+	local key = i % 10
+	hl.bind(SUPER .. key, hl.dsp.focus({ workspace = key }))
+	hl.bind(SUPERSHIFT .. key, hl.dsp.window.move({ workspace = key }))
 end
 
 -- Scroll through existing workspaces
-hl.bind(SUPER .. "L", hl.dsp.focus({ workspace = hl.get_active_workspace().id + 1 }))
-hl.bind(SUPER .. "RIGHT", hl.dsp.focus({ workspace = hl.get_active_workspace().id + 1 }))
-hl.bind(SUPER .. "H", hl.dsp.focus({ workspace = hl.get_active_workspace().id - 1 }))
-hl.bind(SUPER .. "LEFT", hl.dsp.focus({ workspace = hl.get_active_workspace().id - 1 }))
+hl.bind(SUPER .. "L", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(SUPER .. "RIGHT", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(SUPER .. "H", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(SUPER .. "LEFT", hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move active window next/previous workspaces
-hl.bind(SUPERSHIFT .. "L", hl.dsp.window.move({ workspace = hl.get_active_workspace().id + 1 }))
-hl.bind(SUPERSHIFT .. "RIGHT", hl.dsp.window.move({ workspace = hl.get_active_workspace().id + 1 }))
-hl.bind(SUPERSHIFT .. "H", hl.dsp.window.move({ workspace = hl.get_active_workspace().id - 1 }))
-hl.bind(SUPERSHIFT .. "LEFT", hl.dsp.window.move({ workspace = hl.get_active_workspace().id - 1 }))
+hl.bind(SUPERSHIFT .. "L", hl.dsp.window.move({ workspace = "e+1" }))
+hl.bind(SUPERSHIFT .. "RIGHT", hl.dsp.window.move({ workspace = "e+1" }))
+hl.bind(SUPERSHIFT .. "H", hl.dsp.window.move({ workspace = "e-1" }))
+hl.bind(SUPERSHIFT .. "LEFT", hl.dsp.window.move({ workspace = "e-1" }))
 
 -- Move/resize windows
 hl.bind(SUPER .. "mouse:272", hl.dsp.window.drag())
@@ -88,3 +89,8 @@ hl.bind(SUPER .. "mouse:273", hl.dsp.window.resize())
 -- Special workspace bindings
 hl.bind(SUPERSHIFT .. "SPACE", hl.dsp.workspace.toggle_special("music"))
 hl.bind(SUPERCTRL .. "SPACE", hl.dsp.workspace.toggle_special("notes"))
+
+-- MPRIS Binds
+hl.bind(SUPERSHIFT .. "COMMA", hl.dsp.exec_cmd("playerctl previous"))
+hl.bind(SUPERSHIFT .. "PERIOD", hl.dsp.exec_cmd("playerctl next"))
+hl.bind(SUPERSHIFT .. "P", hl.dsp.exec_cmd("playerctl play-pause"))

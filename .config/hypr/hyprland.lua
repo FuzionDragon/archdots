@@ -1,12 +1,10 @@
-local inactive_colour = "293E40"
-local active_colour = "76698E"
+require("lua/startup")
+require("lua/animations")
+require("lua/window_rules")
+require("lua/bindings")
 
-local laptop_monitor = {
-	output = "eDP-1",
-	mode = "1920x1080@60",
-	position = "0x0",
-	scale = 1,
-}
+local inactive_colour = "rgb(293E40)"
+local active_colour = "rgb(76698E)"
 
 local input = {
 	kb_layout = "gb",
@@ -57,7 +55,7 @@ local master = {
 local workspace_gesture = {
 	fingers = 3,
 	direction = "horizontal",
-	actions = "workspace",
+	action = "workspace",
 }
 
 local misc = {
@@ -71,15 +69,19 @@ local ecosystem = {
 	no_donation_nag = true,
 }
 
+local laptop_monitor = {
+	output = "eDP-1",
+	mode = "1920x1080@60",
+	position = "0x0",
+	scale = 1,
+}
 hl.monitor(laptop_monitor)
 hl.monitor({
+	output = "",
 	mode = "highrr",
 	position = "auto",
 	scale = 1,
 })
-
-hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("~/.scripts/monitorswitch.sh"))
-hl.bind("switch:off:Lid Switch", hl.monitor(laptop_monitor))
 
 hl.config({
 	general = general,
@@ -90,21 +92,18 @@ hl.config({
 	misc = misc,
 	ecosystem = ecosystem,
 })
+
 hl.gesture(workspace_gesture)
 
---
--- Need to implement these modules in lua
---
---# Startup Apps and Scripts
---source = ~/.config/hypr/startup.conf
---#source = ~/.cache/wal/colors-hyprland.conf
---source = ~/.colour_schemes/colors.conf
---#source = ~/.config/hypr/colors.conf
---# Window rules
---source = ~/.config/hypr/window_rules.conf
---
---# Bindings
---source = ~/.config/hypr/bindings.conf
--- #
--- # Animations
---source = ~/.config/hypr/animations.conf
+hl.bind("SUPER + SHIFT + CTRL + N", function()
+	hl.monitor({ output = laptop_monitor.output, disabled = true })
+	hl.dsp.exec_cmd("~/.scripts/refreshwaybar.sh")
+end)
+--hl.bind("switch:on:Lid Switch", function()
+--	hl.monitor({ output = laptop_monitor.output, disabled = true })
+--	hl.dsp.exec_cmd("~/.scripts/refreshwaybar.sh")
+--end)
+hl.bind("switch:off:Lid Switch", function()
+	hl.monitor(laptop_monitor)
+	os.execute("hyprctl reload")
+end)
