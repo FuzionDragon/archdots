@@ -33,12 +33,12 @@ local decoration = {
 		passes = 1,
 	},
 	active_opacity = 1.,
-	inactive_opacity = 1.,
+	inactive_opacity = 0.8,
 	fullscreen_opacity = 1.,
 	shadow = {
 		color = "000000",
 		range = 2,
-		offset = { 0, 0 },
+		offset = { 1, 1 },
 	},
 }
 
@@ -96,14 +96,12 @@ hl.config({
 hl.gesture(workspace_gesture)
 
 hl.bind("SUPER + SHIFT + CTRL + N", function()
-	hl.monitor({ output = laptop_monitor.output, disabled = true })
-	hl.dsp.exec_cmd("~/.scripts/refreshwaybar.sh")
-end)
---hl.bind("switch:on:Lid Switch", function()
---	hl.monitor({ output = laptop_monitor.output, disabled = true })
---	hl.dsp.exec_cmd("~/.scripts/refreshwaybar.sh")
---end)
-hl.bind("switch:off:Lid Switch", function()
-	hl.monitor(laptop_monitor)
-	os.execute("hyprctl reload")
+	if #hl.get_monitors() > 1 then
+		hl.monitor({ output = laptop_monitor.output, disabled = true })
+	else
+		hl.monitor(laptop_monitor)
+		os.execute("hyprctl reload")
+	end
+
+	hl.exec_cmd("uswm app -- ~/.scripts/refreshwaybar.sh")
 end)
