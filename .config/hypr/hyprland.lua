@@ -4,7 +4,7 @@ require("lua/window_rules")
 require("lua/bindings")
 
 local inactive_colour = "rgb(293E40)"
-local active_colour = "rgb(76698E)"
+local active_colour = "rgb(313B84)"
 
 local input = {
 	kb_layout = "gb",
@@ -36,7 +36,7 @@ local decoration = {
 	inactive_opacity = 0.8,
 	fullscreen_opacity = 1.,
 	shadow = {
-		color = "000000",
+		color = "rgb(000000)",
 		range = 2,
 		offset = { 1, 1 },
 	},
