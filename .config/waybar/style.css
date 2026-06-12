@@ -1,4 +1,4 @@
-@import "/home/davidl/.colour_schemes/colors.css";
+@import "./colors.css";
 
 * {
   /* `otf-font-awesome` is required to be installed for icons */
