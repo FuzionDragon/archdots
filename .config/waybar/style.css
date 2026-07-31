@@ -2,7 +2,9 @@
 
 * {
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: "Fira Sans Semibold", noto-fonts-emoji, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Iosevka NF ExtraBold", noto-fonts-emoji, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  /*font-family: "Inria Sans:style=Bold", noto-fonts-emoji, FontAwesome, Roboto, Helvetica, Arial, sans-serif;*/
+   
   font-size: 14px;
   padding: 1px;
   margin: 2px;

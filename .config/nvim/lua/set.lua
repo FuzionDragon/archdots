@@ -38,7 +38,7 @@ vim.opt.foldlevelstart = 1
 vim.opt.foldnestmax = 4
 
 vim.o.autocomplete = true
-vim.opt.completeopt = "menuone,fuzzy,popup,noinsert"
+vim.opt.completeopt = "menu,menuone,popup,noselect"
 vim.opt.complete:append("o")
 
 vim.g.vimtex_view_method = "zathura"

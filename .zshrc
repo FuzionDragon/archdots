@@ -93,7 +93,7 @@ alias icat="kitty +kitten icat"
 alias unmount="sudo umount /mnt/External"
 alias acat="~/.scripts/rendercwd.sh"
 alias cat="bat"
-alias rbackup="sudo rsync -aAXpvr --exclude={'/tmp/*','/storage/*','/proc/*','/boot/*','/dev/*','/run/*','/sys/*','/mnt/*'} / /mnt/External/backup"
+alias rbackup="sudo rsync -aAXpvr --exclude={'/tmp/*','/storage/*','/proc/*','/boot/*','/dev/*','/run/*','/sys/*','/mnt/*'} /"
 
 NO_STRIP=true
 
