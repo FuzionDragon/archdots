@@ -4,5 +4,5 @@ default-timeout=3000
 border-radius=10
 
 background-color=#293E40
-text-color=#C0C2C3
-border-color=#76698E
+text-color=
+border-color=

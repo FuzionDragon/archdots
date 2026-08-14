@@ -103,5 +103,5 @@ hl.bind("SUPER + SHIFT + CTRL + N", function()
 		os.execute("hyprctl reload")
 	end
 
-	hl.exec_cmd("uswm app -- ~/.scripts/refreshwaybar.sh")
+	hl.exec_cmd("~/.scripts/refreshwaybar.sh")
 end)

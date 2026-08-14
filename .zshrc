@@ -23,7 +23,7 @@ export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
 # Man export to Neovim
 export MANPAGER="nvim +Man!"
 export EDITOR="nvim"
-export BROWSER="librewolf"
+export BROWSER="zen-browser"
 
 # Plugins
 zinit light zsh-users/zsh-syntax-highlighting
