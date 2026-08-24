@@ -2,6 +2,10 @@
 
 My personal Arch dotfiles, scripts and packages.
 
+![Terminals, Neovim, Fastfetch, and Mako](./.images/terminals.png)
+![Rofi and peek at Zen browser with Github open](./.images/rofi.png)
+![Lock screen image](./.images/lockscreen.png)
+
 These include my configs for:
 
 - Hyprland
