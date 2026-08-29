@@ -27,11 +27,19 @@ hl.bind(SUPERCTRLSHIFT .. "S", hl.dsp.exec_cmd("~/.scripts/grim.sh"))
 hl.bind(SUPERCTRL .. "DELETE", hl.dsp.exec_cmd("~/.scripts/powermenu.sh"))
 
 -- Window bindings
-hl.bind(SUPER .. "Q", hl.dsp.window.kill(hl.get_active_window()))
+hl.bind(SUPER .. "Q", hl.dsp.window.close())
 hl.bind(SUPER .. "F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 hl.bind(SUPERCTRL .. "Q", function()
-	hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
-	hl.dispatch(hl.dsp.window.center())
+	local monitor = hl.get_active_monitor()
+	if hl.get_active_window().floating then
+		hl.dispatch(hl.dsp.window.resize({ x = monitor.width * 0.4, y = monitor.height }))
+		hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+	else
+		local ratio = 0.5
+		hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+		hl.dispatch(hl.dsp.window.resize({ x = monitor.width * ratio, y = monitor.height * ratio }))
+		hl.dispatch(hl.dsp.window.center())
+	end
 end)
 hl.bind(SUPERCTRL .. "TAB", hl.dsp.layout("swapwithmaster master"))
 hl.bind(SUPERCTRL .. "H", hl.dsp.layout("orientationnext"))
