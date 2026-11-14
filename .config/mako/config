@@ -1,6 +1,6 @@
 max-history=5
 max-visible=3
-default-timeout=3000
+default-timeout=5000
 border-radius=10
 
 background-color=#293E40

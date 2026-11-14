@@ -2,7 +2,8 @@
 DISCHARGING=$(acpi -b | grep "Battery 0" | grep -c "Discharging")
 
 if [[ ($DISCHARGING == '1') && ($1 == 'L')]]; then
-    hyprlock
+    #hyprlock
+    gtklock
 elif [[ ($DISCHARGING == '1') && ($1 == 'D')]]; then
     hyprctl dispatch dpms off
 else  

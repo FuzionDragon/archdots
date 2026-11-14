@@ -21,7 +21,7 @@ These include my configs for:
 
 This README will have all the necessary steps to replicate the essentials of my system as well as other optional configurations.
 
-You can run the interactive setup script **Work in progress** which will go through all the steps needed to replicate this system. The only requirement needed is that this repo needs to be in your home directory.
+You can run the **Work in progress** interactive setup script (located in ~/archdots/.scripts/setup.sh) which will go through all the steps needed to replicate this system. The only requirement needed is that this repo needs to be in your home directory.
 
 Otherwise, the manual setup steps are down below.
 

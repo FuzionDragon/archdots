@@ -1,19 +1,22 @@
 #!/usr/bin/bash
 
+export DISPLAY=:0
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+
 cliphist wipe
 
-if [ $(ls -A ~/.local/share/Trash/info | wc -l) -ne 0 ]; then
-  rm -r ~/.local/share/Trash/info/*
+if [ $(ls -A $HOME/.local/share/Trash/info | wc -l) -ne 0 ]; then
+  rm -r $HOME/.local/share/Trash/info/*
 fi
-if [ $(ls -A ~/.local/share/Trash/files | wc -l) -ne 0 ]; then
-  rm -r ~/.local/share/Trash/files/* 
+if [ $(ls -A $HOME/.local/share/Trash/files | wc -l) -ne 0 ]; then
+  rm -r $HOME/.local/share/Trash/files/* 
 fi
 
-if [[ $EUID -eq 0 ]]; then
+if [[ $EUID -eq 0 && $(ls -A /var/cache/pacman/pkg | wc -l) -ne 0  ]]; then
   rm -r /var/cache/pacman/pkg/* 
 fi
 
-fd Cargo.toml ~ --exec cargo clean
+fd Cargo.toml ~ --exec cargo clean --manifest-path
 
 if [ $(ls -A /var/cache/pacman/pkg | wc -l) -ne 0 ]; then
   notify-send "Pacman Cache Not Empty" "Run pacman / paru -Scc and then manually clear /var/cache/pacman/pkg, or you could run this clean.sh script with root permissions"

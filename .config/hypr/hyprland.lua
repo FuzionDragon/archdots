@@ -6,6 +6,7 @@ require("lua/bindings")
 local inactive_colour = "rgb(293E40)"
 local active_colour = "rgb(313B84)"
 
+--hl.animation({ leaf = "global", enabled = false })
 local input = {
 	kb_layout = "gb",
 	kb_options = "caps:none",
@@ -96,11 +97,15 @@ hl.config({
 hl.gesture(workspace_gesture)
 
 hl.bind("SUPER + SHIFT + CTRL + N", function()
-	if #hl.get_monitors() > 1 then
-		hl.monitor({ output = laptop_monitor.output, disabled = true })
-	else
+	local monitor = hl.get_monitor("eDP-1")
+	if not monitor then
 		hl.monitor(laptop_monitor)
 		os.execute("hyprctl reload")
+	else
+		hl.monitor({
+			output = "eDP-1",
+			disabled = true,
+		})
 	end
 
 	hl.exec_cmd("~/.scripts/refreshwaybar.sh")

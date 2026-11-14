@@ -60,6 +60,7 @@ bindkey -e '^J' history-search-forward
 bindkey -e ' ' magic-space
 bindkey -e -s '^F' '. ~/.scripts/find_repos.sh^M clear^M' 
 bindkey -e -s '^U' 'git commit -m ""\C-b'
+bindkey -r "^D"
 
 # Edit Command Line binding
 autoload -Uz edit-command-line
@@ -94,6 +95,7 @@ alias unmount="sudo umount /mnt/External"
 alias acat="~/.scripts/rendercwd.sh"
 alias cat="bat"
 alias rbackup="sudo rsync -aAXpvr --exclude={'/tmp/*','/storage/*','/proc/*','/boot/*','/dev/*','/run/*','/sys/*','/mnt/*'} /"
+alias clean="sudo -E ~/.scripts/clean.sh"
 
 NO_STRIP=true
 

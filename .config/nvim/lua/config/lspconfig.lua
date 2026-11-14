@@ -50,6 +50,7 @@ vim.lsp.enable("ltex-ls")
 vim.lsp.enable("harper-ls")
 vim.lsp.enable("jsonls")
 vim.lsp.enable("html-ls")
+vim.lsp.enable("qmlls")
 vim.lsp.enable("bash-language-server")
 vim.lsp.enable("rust_analyzer")
 
