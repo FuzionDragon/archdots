@@ -2,8 +2,8 @@ local UWSM_PREFIX = "uwsm app -- "
 local WALLPAPER_PATH = "~/Pictures/Wallpapers/outer-wilds.png"
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd(UWSM_PREFIX .. "awww-daemon && awww img " .. WALLPAPER_PATH)
-	hl.exec_cmd(UWSM_PREFIX .. "waybar")
+	--	hl.exec_cmd(UWSM_PREFIX .. "awww-daemon && awww img " .. WALLPAPER_PATH)
+	hl.exec_cmd(UWSM_PREFIX .. "noctalia")
 	hl.exec_cmd(UWSM_PREFIX .. "gammastep")
 	hl.exec_cmd(UWSM_PREFIX .. "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 	hl.exec_cmd(UWSM_PREFIX .. "wl-paste --type text --watch cliphist store")

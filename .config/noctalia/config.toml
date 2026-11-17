@@ -1,0 +1,60 @@
+[theme]
+mode = "dark"
+
+[bar.default]
+position = "top"
+radius = 6
+margin_edge = 6 
+margin_ends = 6
+concave_edge_corners = false
+
+font_family = "Iosevka NF"
+font_weight = 800
+
+start  = ["workspaces","wallpaper", "packages", "tray"]
+center = ["media"]
+end    = ["brightness", "volume", "network",  "battery", "clock", "control-center"]
+
+widget_spacing = 10
+group_by_workspace = true
+
+[widget.wallpaper]
+color = "primary"
+
+[widget.control-center]
+color = "primary"
+
+[widget.tray]
+color = "primary"
+icon_color = "primary"
+
+[widget.media]
+color = "primary"
+max_length = 350
+min_length = 80
+
+[widget.brightness]
+color = "primary"
+
+[widget.volume]
+color = "primary"
+
+[widget.network]
+color = "primary"
+
+[widget.bluetooth]
+color = "primary"
+
+[widget.battery]
+color = "primary"
+
+[widget.clock]
+color = "primary"
+format = "{:%I:%M%p | %a %d/%m/%y}"
+
+[widget.session]
+color = "primary"
+
+[shell.shadow]
+direction = "down_right"
+alpha     = 0.55

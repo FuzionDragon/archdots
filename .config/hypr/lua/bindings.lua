@@ -20,7 +20,7 @@ hl.bind(SUPER .. "C", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist de
 hl.bind(SUPER .. "SPACE", hl.dsp.exec_cmd("rofi -show drun -run-command 'uwsm app -- {cmd}'"))
 
 -- Script bindings
-hl.bind(SUPERSHIFT .. "E", hl.dsp.exec_cmd(UWSM_PREFIX .. "~/.scripts/refreshwaybar.sh"))
+--hl.bind(SUPERSHIFT .. "E", hl.dsp.exec_cmd(UWSM_PREFIX .. "~/.scripts/refreshwaybar.sh"))
 hl.bind(SUPERSHIFT .. "S", hl.dsp.exec_cmd("~/.scripts/grim_wl-copy.sh"))
 hl.bind(SUPERCTRL .. "S", hl.dsp.exec_cmd("~/.scripts/grim_fullscreen.sh"))
 hl.bind(SUPERCTRLSHIFT .. "S", hl.dsp.exec_cmd("~/.scripts/grim.sh"))

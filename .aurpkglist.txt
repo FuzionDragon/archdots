@@ -1,4 +1,4 @@
-android-studio
+chkrootkit
 downgrade
 kanata-bin
 localsend-bin
@@ -7,5 +7,5 @@ nordzy-hyprcursors
 oh-my-posh-bin
 paru
 paru-debug
-waybar-git
+r2modman-bin
 zen-browser-bin

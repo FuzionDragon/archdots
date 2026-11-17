@@ -19,7 +19,6 @@
         "cursor",
         {
             "type": "packages",
-            "format": "{pacman} (pacman)"
         },
         "uptime",
         "cpu",

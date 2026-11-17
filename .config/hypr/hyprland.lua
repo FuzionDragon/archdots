@@ -108,5 +108,5 @@ hl.bind("SUPER + SHIFT + CTRL + N", function()
 		})
 	end
 
-	hl.exec_cmd("~/.scripts/refreshwaybar.sh")
+	--hl.exec_cmd("~/.scripts/refreshwaybar.sh")
 end)

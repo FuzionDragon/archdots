@@ -4,6 +4,7 @@
 
 # Install required packages
 echo "Installing required packages"
+sudo pacman -Syu
 sudo pacman -S stow ttf-iosevka-nerd ttf-font-awesome ttf-meslo-nerd
 cd ~/archdots
 
@@ -38,15 +39,6 @@ while true; do
     esac
 done
 
-# If you wish to use a different AUR Helper and uninstall Paru, you will have to do it manually after the script is done
-cd ~/Downloads
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
-cd ~/Downloads
-rm -rf paru
-cd ~/archdots
-
 #
 # Reflector for faster downloads
 #
@@ -55,32 +47,45 @@ echo "To ensure the fastest package download speeds, find your country from this
 reflector --list-countries | less
 while true; do
     read -p "Enter the country you are from (case sensitive): " answer
-    while true; do
-        found=$(reflector --list-countries | awk -F ' ' '{print $1}' | grep --Fxq $answer && echo 1 || echo 0)
-        if [ $found -eq 1 ]; then
-        fi
-        case $answer in
-            [1]* ) paru -S --needed - < ~/.pkglist.txt && paru -S --needed - < ~/.aurpkglist; break;;
-            [3]*) paru -S --needed - < ~/.pkglist.txt; break;;
-            [3]*) break;;
-            * ) echo "Please answer with 1/2/3.";;
-        esac
-    done
-    case $answer in
-        [1]* ) paru -S --needed - < ~/.pkglist.txt && paru -S --needed - < ~/.aurpkglist; break;;
-        [3]*) paru -S --needed - < ~/.pkglist.txt; break;;
-        [3]*) break;;
-        * ) echo "Please answer with 1/2/3.";;
-    esac
+    found=$(reflector --list-countries | awk -F ' ' '{print $1}' | grep --Fxq $answer && echo 1 || echo 0)
+    if [ $found -eq 1 ]; then
+        echo "Entered country found, setting mirrors to country $answer"
+        sudo reflector --verbose --country 'United Kingdom' --sort rate -l 10 --save /etc/pacman.d/mirrorlist
+        break;
+    else
+        echo "Enter country not found or spelt incorrectly, please try again."
+    fi
+
+    read -p "Do you want to see the list of countries again? (y/N): " answer2
+    if [ $answer2 -eq "y" ];
+        reflector --list-countries | less
+    fi
 done
 
-sudo reflector --verbose --country 'United Kingdom' --sort rate -l 10 --save /etc/pacman.d/mirrorlist
+#
+# Package Installation
+#
+
+# If you wish to use a different AUR Helper and uninstall Paru, you will have to do it manually after the script is done
+setup_aur () {
+    cd ~/Downloads
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si
+    cd ~/Downloads
+    rm -rf paru
+    cd ~/archdots
+}
+
+echo "Getting ready to install packages."
+echo "Note that for full functionality a few AUR packages are unfortunately required, and so I would recommend for full replication to select 1 (all)."
+echo "In the future, I am working towards trimming the number of AUR packages I use."
 
 while true; do
     read -p "Do you want to install all packages? (1: All | 2: No AUR | 3: No Packages): " answer
     case $answer in
         [1]* ) paru -S --needed - < ~/.pkglist.txt && paru -S --needed - < ~/.aurpkglist; break;;
-        [3]*) paru -S --needed - < ~/.pkglist.txt; break;;
+        [3]*) sudo pacman -S --needed - < ~/.pkglist.txt; break;;
         [3]*) break;;
         * ) echo "Please answer with 1/2/3.";;
     esac
@@ -95,5 +100,3 @@ while true; do
         * ) echo "Please answer Y or N.";;
     esac
 done
-
-# Setting up all Systemd services
